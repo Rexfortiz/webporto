@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root{
+  width: 100vw;
+  height: 100vh;
+  background-color: #d9afd9;
+  background-image: linear-gradient(0deg, #000000 0%, #00011d 100%);
+  
+}
+
+.tech-text{
+  -webkit-text-stroke: 1px #fafafa;
+}
