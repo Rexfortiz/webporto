@@ -8,9 +8,11 @@ Title: A Mysterious Adventure - 3D Editor Challenge
 */
 
 import { useEffect, useLayoutEffect, useRef } from 'react'
-import { useGLTF, useAnimations, useScroll } from '@react-three/drei'
+import { useGLTF, useAnimations, useScroll, SpotLight, Html } from '@react-three/drei'
 import gsap from 'gsap'
 import { useFrame } from '@react-three/fiber'
+import Carousel from './Carousel'
+import Rig from './Rig'
 
 export function Cyberpunk(props) {
   const group = useRef()
@@ -20,16 +22,27 @@ export function Cyberpunk(props) {
   const scroll = useScroll()
   const tl = useRef();
 
+  const model = useRef();
+  const webPorto = useRef();
+
+  const mainSpotLight = useRef();
+  const mainSpotLightTarget = useRef();
+  const sideSpotLight = useRef();
+  const sideSpotLightTarget = useRef();
+  const midPointLight = useRef();
+  const midPointLightTarget = useRef();
+  const glassref = useRef();
+  const topSpotLight = useRef();
 
   useEffect(() => {
     actions[names[0]].reset().fadeIn(0.5).play()
-  })
+    mainSpotLight.current.target = mainSpotLightTarget.current;
+    sideSpotLight.current.target = sideSpotLightTarget.current;
+    midPointLight.current.target = midPointLightTarget.current;
+  },[])
 
   useFrame(() => {
     tl.current.seek(scroll.offset * tl.current.duration())
-
-    console.log(scroll.offset * tl.current.duration())
-
   })
 
   useLayoutEffect(() => {
@@ -38,22 +51,91 @@ export function Cyberpunk(props) {
     //Vertical Animation
     tl.current.to(
       group.current.position, {
-        duration: 0.7,
+        duration: 1,
         y: 50,
       },
       0
     );
     tl.current.to(
-      group.current.rotation, {
+      group.current.position, {
         duration: 1,
-        y: Math.PI,
+        y: 360,
       },
-      1
+      1.3
+    );
+
+    //Web Porto
+    tl.current.to(
+      group.current.rotation, {
+        duration: 0.6,
+        y: -0.55,
+      },
+      1.7
+    );
+    //image spin
+
+    //image1
+    tl.current.to(
+      webPorto.current.rotation, {
+        duration: 0.3,
+        y: ((Math.PI * 2) / 6) * 1,
+      },
+      2.5
+    );
+    tl.current.to(
+      webPorto.current.rotation, {
+        duration: 0.3,
+        y: ((Math.PI * 2) / 6) * 2,
+      },
+      3
+    );
+    tl.current.to(
+      webPorto.current.rotation, {
+        duration: 0.3,
+        y: ((Math.PI * 2) / 6) * 3,
+      },
+      3.5
+    );
+    
+    tl.current.to(
+      webPorto.current.rotation, {
+        duration: 0.3,
+        y: ((Math.PI * 2) / 6) * 4,
+      },
+      4
+    );
+    
+    tl.current.to(
+      webPorto.current.rotation, {
+        duration: 0.3,
+        y: ((Math.PI * 2) / 6) * 5,
+      },
+      4.5
+    );
+    
+    //Contact Me
+    tl.current.to(
+      group.current.position, {
+        duration: 0.2,
+        y: 280,
+        x:-45
+      },
+      7
+    );
+    tl.current.to(
+      group.current.rotation, {
+        duration: 0.2,
+        y: -1.23,
+      },
+      7
     );
   }, [])
 
   return (
     <group ref={group} {...props} dispose={null}>
+      <group ref={webPorto} position={[150,-130,200]} >
+        <Carousel  />
+      </group>
       <group name="Sketchfab_Scene" >
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
           <group name="4cd116fc63ca40809810ca0842dc78edfbx" rotation={[Math.PI / 2, 0, 0]}>
@@ -333,6 +415,89 @@ export function Cyberpunk(props) {
                   <skinnedMesh name="Object_16" geometry={nodes.Object_16.geometry} material={materials.normal} skeleton={nodes.Object_16.skeleton} />
                   <skinnedMesh name="Object_18" geometry={nodes.Object_18.geometry} material={materials.normal} skeleton={nodes.Object_18.skeleton} />
                   <skinnedMesh name="Object_20" geometry={nodes.Object_20.geometry} material={materials.normal} skeleton={nodes.Object_20.skeleton} />
+                </group>
+                <group>
+                  <ambientLight intensity={0.2} />
+                  <SpotLight
+                    name="middle Spotlight"
+                    position={[200, 90, 25]}  
+                    penumbra={1} 
+                    decay={0} 
+                    intensity={5} 
+                    color="#ffb0cd"
+                    distance={600}
+                    angle={0.8}
+                    castShadow
+                    ref={midPointLight}
+                    shadow-mapSize-width={500}
+                    shadow-mapSize-height={500}
+                    shadow-bias={-0.001}
+                  />
+                  <SpotLight 
+                    name="mainSpotlight"
+                    position={[-172, -60.5, -274]}
+                    penumbra={0.3} 
+                    decay={0} 
+                    intensity={9} 
+                    color="#EE8A3E"
+                    distance={500}
+                    angle={1.1}
+                    ref={mainSpotLight}
+                    castShadow
+                    shadow-mapSize-width={500}
+                    shadow-mapSize-height={500}
+                    shadow-bias={-0.00006}
+                  />
+                  <SpotLight 
+                    name="sideSpotlight"
+                    position={[145, -61.5, 224]}
+                    penumbra={0.3} 
+                    decay={0} 
+                    intensity={9} 
+                    color="#e6aa20"
+                    distance={500}
+                    angle={1.2}
+                    ref={sideSpotLight}
+                    castShadow
+                    shadow-mapSize-width={500}
+                    shadow-mapSize-height={500}
+                    shadow-bias={-0.00029}
+                  />
+
+                  <SpotLight 
+                    name="sideSpotlight"
+                    position={[-80,230, 244]}
+                    penumbra={0.3} 
+                    decay={0} 
+                    intensity={2} 
+                    color="#e6aa20"
+                    distance={500}
+                    angle={1.2}
+                    
+                    castShadow
+                    shadow-mapSize-width={500}
+                    shadow-mapSize-height={500}
+                    shadow-bias={-0.00029}
+                  />
+                  
+                  <group>
+                    <mesh name="main Spotlight Target" ref={mainSpotLightTarget} position={[-155, -250, -210]}>
+                      {/* <boxGeometry args={[10, 10, 10]} />
+                      <meshBasicMaterial color="blue" transparent opacity={0.5} /> */}
+                    </mesh>
+                    <mesh name="side Spotlight Target" ref={sideSpotLightTarget} position={[145, -250, 224]}>
+                      {/* <boxGeometry args={[10, 10, 10]} />
+                      <meshBasicMaterial color="blue" transparent opacity={0.5} /> */}
+                    </mesh>
+                    <mesh name="mid Spotlight Target" ref={midPointLightTarget} position={[-150, -290, 25]}>
+                      {/* <boxGeometry args={[10, 10, 10]} />
+                      <meshBasicMaterial color="blue" transparent opacity={0.5} /> */}
+                    </mesh>
+                    <mesh position={[0,-200,0]} >
+                      <boxGeometry args={[2000,0.1, 2000]}/>
+                      <meshStandardMaterial color="#141414" />
+                    </mesh>
+                  </group>
                 </group>
               </group>
             </group>

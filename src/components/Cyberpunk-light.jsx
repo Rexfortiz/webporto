@@ -11,6 +11,9 @@ export function CyberpunkLight(props) {
   const { actions } = useAnimations(animations, group)
   const spotlightTarget = useRef();
 
+  
+
+
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">

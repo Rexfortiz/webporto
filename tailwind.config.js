@@ -25,7 +25,7 @@ export default {
         },
         zinc: '#101010',
         base: {
-          DEFAULT: '#222831',
+          DEFAULT: '#0D0D0D',
           2: '#31363F',
         },
         base_light:{
@@ -34,8 +34,9 @@ export default {
         }
       },
       boxShadow: {
-        section: '0 0px 240px 350px',
+        section: '0 0px 240px 300px',
         section_lg: '0 0px 140px 250px',
+        tech_inner: 'inset 0 0 140px 250px rgb(0 0 0 / 0.5)',
       },
     },
   },

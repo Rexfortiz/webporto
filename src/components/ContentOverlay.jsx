@@ -1,9 +1,11 @@
 import { Scroll, useScroll } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber";
-import { useState } from "react";
+import { useState, useLayoutEffect, useRef } from "react";
 import IntroductionOverlay from "./IntroductionOverlay";
-import AboutMeOverlay from "./AboutMeOverlay";
 import TechStack from "./TechStack";
+
+import gsap from "gsap";
+import WebOverlay from "./WebOverlay";
 
 const Section = (props) => {
   return(
@@ -27,25 +29,29 @@ const Section = (props) => {
 const ContentOverlay = () => {
 
   const scroll = useScroll();
+  const tl = useScroll();
+  const techRef = useRef(null);
+  const wrapperRef = useRef(null);
+
   const [opacityFirstSection, setOpacityFirstSection] = useState(1)
   const [opacitySecondSection, setOpacitySecondSection] = useState(1)
   const [opacityLastSection, setOpacityLastSection] = useState(1)
 
-
   useFrame(() => {
     setOpacityFirstSection(1 - scroll.range(0, 1 / 3));
-    setOpacitySecondSection(scroll.curve(1 / 3, 1/ 3));
+    setOpacitySecondSection(scroll.curve(1 / 7, 3/ 7));
     setOpacityLastSection(scroll.range(2 / 3, 1 / 3))
+    // console.log(scroll.offset)
+    // tl.current.seek(scroll.offset * tl.current.duration())
+    
   })
-
+  
   return (
     <Scroll html>
       <div className="w-screen">
         <IntroductionOverlay opacity={opacityFirstSection} />
-        <TechStack opacity={opacitySecondSection} />
-        <Section opacity={opacityLastSection}>
-          <h1 className="font-serif text-2xl">page 3</h1>
-        </Section>
+        <TechStack tl={tl} techRef={techRef} wrapperRef={wrapperRef} />
+        <WebOverlay opacity={1} />
       </div>
     </Scroll>
   )

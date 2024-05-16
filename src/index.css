@@ -14,3 +14,8 @@
 .tech-text{
   -webkit-text-stroke: 1px #fafafa;
 }
+
+.active {
+  /* Your active styles here */
+  background-color: blue;
+}
