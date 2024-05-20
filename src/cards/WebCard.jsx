@@ -8,6 +8,7 @@ import { easing } from 'maath'
 const WebCard = ({ url, ...props }) => {
   const ref = useRef()
   const [hovered, hover] = useState(false)
+  
   const pointerOver = (e) => (e.stopPropagation(), hover(true))
   const pointerOut = () => hover(false)
   useFrame((state, delta) => {

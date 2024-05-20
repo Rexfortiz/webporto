@@ -1,16 +1,10 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect, useRef, useState } from "react";
-import { useFrame } from "@react-three/fiber";
-import { useScroll } from "@react-three/drei";
-import { div } from "three/examples/jsm/nodes/Nodes.js";
+import { useLayoutEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const WebOverlay = (props) => {
-
-  const scroll = useScroll();
-  const tl = useRef();
 
   const div1 = useRef()
   const div2 = useRef()
@@ -18,144 +12,152 @@ const WebOverlay = (props) => {
   const div4 = useRef()
   const div5 = useRef()
   const div6 = useRef()
-  const tess = useRef()
 
-  // gsap.set(div1.current, {
-  //   y:0,
-  //   ease: "power1.inOut"
-  // })
-  // gsap.set(div2.current, {
-  //   y:0,
-  //   ease: "power1.inOut"
-  // })
-
-  // gsap.timeline({
-  //   scrollTrigger:{
-  //     trigger: div2.current,
-  //     start: "top center",
-  //     end: "top top",
-  //   }
-  // })
-  // .to(div1.current, {
-  //   x:0
-  // })
-  // .to(div2.current, {
-  //   x:200
-  // })
-  // .to(tess.current, {
-  //   scrollLeft: 25
-  // })
-
-  useFrame(() => {
-    if (scroll.offset * tl.current.duration() > 0.01) { // Adjust the threshold as needed
-      tl.current.seek(scroll.offset * tl.current.duration());
-      console.log(scroll.offset * tl.current.duration());
-    }
+  gsap.set(div2.current, {
+    y:0,
+    ease: "power1.in",
+    
   })
+  gsap.set(div3.current, {
+    y:-200,
+    ease: "power1.inOut"
+  })
+  // gsap.set(div4.current, {
+  //   y:-400,
+  //   ease: "power1.inOut"
+  // })
+  // gsap.set(div5.current, {
+  //   y:-600,
+  //   ease: "power1.inOut"
+  // })
+  // gsap.set(div6.current, {
+  //   y:-800,
+  //   ease: "power1.inOut"
+  // })
 
   useLayoutEffect(()=> {
-    tl.current = gsap.timeline();
 
-    tl.current.to(
-      div2.current , {
-        y:0,
-        duration:0.1
-      },
-      0
-    )
-    tl.current.to(
-      div3.current , {
-        y:0,
-        duration:0.1
-      },
-      0
-    )
-    tl.current.to(
-      div4.current , {
-        y:0,
-        duration:0.1
-      },
-      0
-    )
-    tl.current.to(
-      div5.current , {
-        y:0,
-        duration:0.1
-      },
-      0
-    )
-    tl.current.to(
-      div6.current , {
-        y:0,
-        duration:0.1
-      },
-      0
-    )
+    gsap.timeline({
+      scrollTrigger:{
+        trigger: div1.current,
+        start: "center center",
+        end: "bottom top",
+        scrub:true,
+        ease: "none",
+      }
+    })
+    .to(div2.current, {
+      y:-200,
+    })
+    .to(div3.current, {
+      y:-200,
+    })
+    .to(div4.current, {
+      y:-200,
+    })
+    .to(div5.current, {
+      y:-200,
+    })
+    .to(div6.current, {
+      y:-200,
+    })
 
+    gsap.timeline({
+      scrollTrigger:{
+        trigger: div2.current,
+        start: "center center",
+        end: "bottom top",
+        scrub:true,
+        ease: "none"
+      }
+    })
+    .to(div3.current, {
+      y:-400
+    })
+    .to(div4.current, {
+      y:-400,
+    })
+    .to(div5.current, {
+      y:-400,
+    })
+    .to(div6.current, {
+      y:-400,
+    })
 
-    tl.current.to(
-      div2.current , {
-        y:-200,
-        duration:0.15
-      },
-      1.06
-    )
-    tl.current.to(
-      div3.current , {
-        y:-500,
-        duration:0.12
-      },
-      1.24
-    )
-    tl.current.to(
-      div4.current , {
-        y:-1000,
-        duration:0.12
-      },
-      1.5
-    )
-    tl.current.to(
-      div5.current , {
-        y:-1250,
-        duration:0.12
-      },
-      1.68
-    )
-    tl.current.to(
-      div6.current , {
-        y:-1550,
-        duration:0.1
-      },
-      1.8
-    )
+    gsap.timeline({
+      scrollTrigger:{
+        trigger: div3.current,
+        start: "center center",
+        end: "bottom top",
+        scrub:true,
+      }
+    })
+    .to(div4.current, {
+      y:-600
+    })
+    .to(div5.current, {
+      y:-600,
+    })
+    .to(div6.current, {
+      y:-600,
+    })
 
-    //benerin jarak dan waktu wkt animasi. durasi sama scroll offset
+    gsap.timeline({
+      scrollTrigger:{
+        trigger: div4.current,
+        start: "top center",
+        end: "bottom top",
+        scrub:true,
+      }
+    })
+    .to(div5.current, {
+      y:-800
+    })
+    .to(div6.current, {
+      y:-800
+    })
 
-    tl.current.to(
-      div1.current , {
-        x:0,
-        duration:0.3
-      },
-      3
-    )
+    gsap.timeline({
+      scrollTrigger:{
+        trigger: div5.current,
+        start: "top center",
+        end: "bottom top",
+        scrub:true,
+      }
+    })
+    .to(div6.current, {
+      y:-1000
+    })
   })
 
   
   return (
     <section
-  className={`h-[200vh] relative flex flex-col justify-center border border-red-500 items-end`}
+  className={`h-[330vh] relative flex flex-col justify-center border border-red-500 items-end`}
   style={{
     opacity: props.opacity,
   }}
 >
   <div className="h-full w-1/2 flex justify-center">
-    <div ref={tess} className="h-full overflow-visible border px-8 pt-52 flex flex-col items-center gap-5 w-full">
-      <div ref={div1} className="w-full h-[60vh] border shadow-2xl bg-white rounded-lg flex-shrink-0" />
-      <div ref={div2} className="w-full h-[60vh] border shadow-2xl bg-white rounded-lg flex-shrink-0" />
-      <div ref={div3} className="w-full h-[60vh] border shadow-2xl bg-white rounded-lg flex-shrink-0" />
-      <div ref={div4} className="w-full h-[60vh] border shadow-2xl bg-white rounded-lg flex-shrink-0" />
-      <div ref={div5} className="w-full h-[60vh] border shadow-2xl bg-white rounded-lg flex-shrink-0" />
-      <div ref={div6} className="w-full h-[60vh] border shadow-2xl bg-white rounded-lg flex-shrink-0" />
+    <div className="h-full overflow-visible border px-8 pt-52 flex flex-col items-center gap-5 w-full">
+      <div ref={div1} className="w-full h-[60vh] border shadow-2xl bg-white rounded-lg flex-shrink-0">
+        div 1
+      </div>
+      <div ref={div2} className="w-full h-[60vh] border shadow-2xl bg-white rounded-lg flex-shrink-0">
+        div 2
+      </div>
+      <div ref={div3} className="w-full h-[60vh] border shadow-2xl bg-white rounded-lg flex-shrink-0">
+        div 3
+      </div>
+      <div ref={div4} className="w-full h-[60vh] border shadow-2xl bg-white rounded-lg flex-shrink-0">
+        div 4
+      </div>
+      <div ref={div5} className="w-full h-[60vh] border shadow-2xl bg-white rounded-lg flex-shrink-0">
+        div 5
+      </div>
+      <div ref={div6} className="w-full h-[60vh] border shadow-2xl bg-white rounded-lg flex-shrink-0">
+        div 6
+      </div>
     </div>
   </div>
 </section>
