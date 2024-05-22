@@ -46,7 +46,7 @@ export const webPorto = [
   },
   {
     name: "AWS clone",
-    img: "/icons/html.png",
+    img: "/web/aws.png",
     url: "googles.com",
     desc:"hahah this is html brooooo",
   },
