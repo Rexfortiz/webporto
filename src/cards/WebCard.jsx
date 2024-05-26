@@ -14,7 +14,7 @@ const WebCard = ({ url, ...props }) => {
   useFrame((state, delta) => {
     easing.damp3(ref.current.scale, hovered ? 1.15 : 1, 0.1, delta)
     easing.damp(ref.current.material, 'radius', hovered ? 3 : 2, 0.2, delta)
-    easing.damp(ref.current.material, 'zoom', hovered ? 1 : 1.5, 0.2, delta)
+    easing.damp(ref.current.material, 'zoom', hovered ? 0.8 : 1, 0.2, delta)
   })
 
   //pass hovered status to overlay

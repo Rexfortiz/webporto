@@ -6,10 +6,10 @@
 
 <!-- [] add carousell techstack with scrolling animation value -->
 
-[] Introduction
+<!-- [] Introduction -->
 <!-- [] tech stack -->
-[] About me
-[] bikin about me buat tiap section(game and web)
+<!-- [] About me
+[] bikin about me buat tiap section(game and web) -->
 [] portofolio
   [] 2 section, web design and game design
   [] sort by date
@@ -19,4 +19,8 @@
 
 [] fix code in webcard.jsx carousel.jsx rig.jsx (ref: https://codesandbox.io/p/sandbox/cards-with-border-radius-9s2wd9?file=%2Fsrc%2FApp.js%3A59%2C13)
 
-[] besok add content ke web porto
+todolist besok:
+[] add content ke webporto
+  [] tinggal add technya
+[] gsap animation
+[] add zoom animation when photo carousel is onpoint
