@@ -6,7 +6,7 @@ import WebCardContent from "../cards/WebCardContent";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const WebOverlay = (props) => {
+const GameOverlay = (props) => {
 
   const refs = useRef(webPortoContent.map(() => useRef(null)));
 
@@ -132,13 +132,13 @@ const WebOverlay = (props) => {
   
   return (
     <section
-      className={`h-[330vh] relative flex flex-col justify-center border border-red-500 items-end`}
+      className={`h-[330vh] relative flex flex-col justify-center border border-red-500 items-start`}
       style={{
         opacity: props.opacity,
       }}
     >
       <div className="h-full w-1/2 flex justify-center">
-        <div className="h-full border px-8 pt-20 flex flex-col items-center gap-5 w-full">
+        <div className="h-full border px-8 pt-52 flex flex-col items-center gap-5 w-full">
           {webPortoContent.map((content, index) => (
             <WebCardContent ref={refs[index]} key={content.name} title={content.name} desc={content.desc} skillList={content.skill} />
           ))}
@@ -148,4 +148,4 @@ const WebOverlay = (props) => {
   );
 };
 
-export default WebOverlay;
+export default GameOverlay;

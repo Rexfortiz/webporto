@@ -6,6 +6,8 @@ import TechStack from "./TechStack";
 
 import gsap from "gsap";
 import WebOverlay from "./WebOverlay";
+import GameOverlay from "./GameOverlay";
+import ContactMe from "./ContactMe";
 
 const Section = (props) => {
   return(
@@ -51,7 +53,15 @@ const ContentOverlay = () => {
       <div className="w-screen">
         <IntroductionOverlay opacity={opacityFirstSection} />
         <TechStack tl={tl} techRef={techRef} wrapperRef={wrapperRef} />
+        <div className="flex justify-center pt-20">
+          <h1 className="text-white font-bold font-sans text-[140px] max-xl:text-[100px]">Web Portofolio</h1>
+        </div>
         <WebOverlay opacity={1} />
+        <div className="flex justify-center pt-20">
+          <h1 className="text-white font-bold font-sans text-[140px] max-xl:text-[100px]">Game Portofolio</h1>
+        </div>
+        <GameOverlay opacity={1} />
+        <ContactMe />
       </div>
     </Scroll>
   )

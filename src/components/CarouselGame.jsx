@@ -1,12 +1,12 @@
 import { Html } from '@react-three/drei'
 import WebCard from '../cards/WebCard'
-import { webPorto } from '../constants'
+import { gamePorto } from '../constants'
 
-const Carousel = ({ radius = 1.4 * 15, count = 6}) => {
+const CarouselGame = ({ radius = 1.4 * 16, count = 7}) => {
 
   return (
     <>
-      {webPorto.map((item, i) => (
+      {gamePorto.map((item, i) => (
         <WebCard
           key={item.name}
           url={item.img}
@@ -21,4 +21,4 @@ const Carousel = ({ radius = 1.4 * 15, count = 6}) => {
   )
 }
 
-export default Carousel
+export default CarouselGame

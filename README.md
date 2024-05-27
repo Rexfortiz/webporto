@@ -24,3 +24,11 @@ todolist besok:
   [] tinggal add technya
 [] gsap animation
 [] add zoom animation when photo carousel is onpoint
+  [] mungkin bikin variabel didalem carousel trus modify didalem cyberpunk-hd
+
+[] isi value gameporto
+
+BESOK TANGGAL 29/05
+[] 1 moderate severity vulnerability in npm i emailjs/browser
+[] style contact me section, gather image from phone
+[] finish gsap animation

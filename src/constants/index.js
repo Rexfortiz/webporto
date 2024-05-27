@@ -154,3 +154,41 @@ export const webPortoContent = [
     }]
   },
 ]
+
+export const gamePorto = [
+  {
+    name: "Food Melody",
+    img: "/web/nike.png",
+    url: "google.com",
+  },
+  {
+    name: "Ndugal",
+    img: "/web/aws.png",
+    url: "googles.com",
+  },
+  {
+    name: "Find: Better Place",
+    img: "/web/webporto.png",
+    url: "google.com",
+  },
+  {
+    name: "STMM GO!",
+    img: "/web/lensi.png",
+    url: "google.com",
+  },
+  {
+    name: "Bakso Shop",
+    img: "/web/lensi.png",
+    url: "google.com",
+  },
+  {
+    name: "Salvia's Scroll Atelier",
+    img: "/web/promptify.png",
+    url: "google.com",
+  },
+  {
+    name: "I Am Leaving",
+    img: "/web/aws.png",
+    url: "https://peek-mee.itch.io/iamleaving",
+  },
+]

@@ -11,8 +11,10 @@ import { useEffect, useLayoutEffect, useRef } from 'react'
 import { useGLTF, useAnimations, useScroll, SpotLight, Html } from '@react-three/drei'
 import gsap from 'gsap'
 import { useFrame } from '@react-three/fiber'
-import Carousel from './Carousel'
+import Carousel from './CarouselWeb'
 import Rig from './Rig'
+import CarouselWeb from './CarouselWeb'
+import CarouselGame from './CarouselGame'
 
 export function Cyberpunk(props) {
   const group = useRef()
@@ -24,6 +26,7 @@ export function Cyberpunk(props) {
 
   const model = useRef();
   const webPorto = useRef();
+  const gamePorto = useRef();
 
   const mainSpotLight = useRef();
   const mainSpotLightTarget = useRef();
@@ -112,29 +115,102 @@ export function Cyberpunk(props) {
       },
       4.5
     );
-    
-    //Contact Me
+
+    //move to gameporto BENERIN BAGIAN INI
+    tl.current.to(
+      group.current.rotation, {
+        duration: 1.5,
+        y: -((Math.PI * 2)/1.4940) ,
+        x: -0.09,
+        z: -0.09,
+      },
+      5.1
+    );
     tl.current.to(
       group.current.position, {
-        duration: 0.2,
-        y: 280,
-        x:-45
+        duration: 1.5,
+        x: 18,
+        z: -140,
+        y: 308
+      },
+      5.1
+    );
+
+    //gameporto image spin
+    tl.current.to(
+      gamePorto.current.rotation, {
+        duration: 0.3,
+        y: ((Math.PI * 2) / 7) * 1,
       },
       7
     );
     tl.current.to(
-      group.current.rotation, {
-        duration: 0.2,
-        y: -1.23,
+      gamePorto.current.rotation, {
+        duration: 0.3,
+        y: ((Math.PI * 2) / 7) * 2,
       },
-      7
+      7.5
+    );
+    tl.current.to(
+      gamePorto.current.rotation, {
+        duration: 0.3,
+        y: ((Math.PI * 2) / 7) * 3,
+      },
+      8
+    );
+    
+    tl.current.to(
+      gamePorto.current.rotation, {
+        duration: 0.3,
+        y: ((Math.PI * 2) / 7) * 4,
+      },
+      8.5
+    );
+    
+    tl.current.to(
+      gamePorto.current.rotation, {
+        duration: 0.3,
+        y: ((Math.PI * 2) / 7) * 5,
+      },
+      9
+    );
+    tl.current.to(
+      gamePorto.current.rotation, {
+        duration: 0.3,
+        y: ((Math.PI * 2) / 7) * 6,
+      },
+      9.5
+    );
+
+    
+    //Contact Me
+    tl.current.to(
+      group.current.position, {
+        duration: 1,
+        y: 270,
+        x: -45,
+        z: -80
+      },
+      13
+    );
+    tl.current.to(
+      group.current.rotation, {
+        duration: 1,
+        x: 0,
+        y: -1.23,
+        z: 0,
+      },
+      13
     );
   }, [])
 
   return (
     <group ref={group} {...props} dispose={null}>
       <group ref={webPorto} position={[150,-130,200]} >
-        <Carousel  />
+        <CarouselWeb  />
+      </group>
+      <group ref={gamePorto} position={[-340,-140,-140]}> 
+        <CarouselGame />
       </group>
       <group name="Sketchfab_Scene" >
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>

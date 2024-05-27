@@ -34,7 +34,7 @@ export const Test2 = () => {
       <group position={[30,-190,50]} rotation={[0,-0.25,0]} ref={model}>
         <OrbitControls enableZoom={false} enablePan={false} enableRotate={false}  />
         
-        <ScrollControls pages={7} damping={0.2}>
+        <ScrollControls pages={14} damping={0.2}>
           {/* <Overlay /> */}
           <IntroductionModel textIntro={textIntro} />
 
