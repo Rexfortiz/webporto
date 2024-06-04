@@ -1,6 +1,6 @@
 import { Scroll, useScroll } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber";
-import { useState, useLayoutEffect, useRef } from "react";
+import { useState, useLayoutEffect, useRef, useEffect } from "react";
 import IntroductionOverlay from "./IntroductionOverlay";
 import TechStack from "./TechStack";
 
@@ -48,16 +48,36 @@ const ContentOverlay = () => {
     
   })
   
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight
+  });
+
+  const updateWindowSize = () => {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateWindowSize);
+    console.log(windowSize.height)
+    return () => {
+      window.removeEventListener("resize", updateWindowSize);
+    };
+  }, [windowSize]);
+
   return (
     <Scroll html>
       <div className="w-screen">
         <IntroductionOverlay opacity={opacityFirstSection} />
         <TechStack tl={tl} techRef={techRef} wrapperRef={wrapperRef} />
         <div className="flex justify-center pt-20">
-          <h1 className="text-white font-bold font-sans text-[140px] max-xl:text-[100px]">Web Portofolio</h1>
+          <h1 className="text-white font-bold font-sans text-[140px] max-xl:text-red-400 max-2xl:text-[120px]">Web Portofolio</h1>
         </div>
         <WebOverlay opacity={1} />
-        <div className="flex justify-center pt-20">
+        <div className={`flex justify-center mt-[500px] max-2xl:mt-[180px] margin-sec`}>
           <h1 className="text-white font-bold font-sans text-[140px] max-xl:text-[100px]">Game Portofolio</h1>
         </div>
         <GameOverlay opacity={1} />

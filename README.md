@@ -20,15 +20,19 @@
 [] fix code in webcard.jsx carousel.jsx rig.jsx (ref: https://codesandbox.io/p/sandbox/cards-with-border-radius-9s2wd9?file=%2Fsrc%2FApp.js%3A59%2C13)
 
 todolist besok:
-[] add content ke webporto
-  [] tinggal add technya
+<!-- [] add content ke webporto -->
+  <!-- [] tinggal add technya -->
 [] gsap animation
 [] add zoom animation when photo carousel is onpoint
   [] mungkin bikin variabel didalem carousel trus modify didalem cyberpunk-hd
 
-[] isi value gameporto
+<!-- [] isi value gameporto -->
 
 BESOK TANGGAL 29/05
 [] 1 moderate severity vulnerability in npm i emailjs/browser
-[] style contact me section, gather image from phone
+<!-- [] style contact me section, gather image from phone -->
 [] finish gsap animation
+[] make hovered effect on caraousel
+  [] pass some indicator to it 
+
+[] render mobile mode ketika width lebih kecil dari sekian

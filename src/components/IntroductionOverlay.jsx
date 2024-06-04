@@ -9,7 +9,7 @@ const IntroductionOverlay = ( props ) => {
       }}
     >
       <div className="z-10 flex items-center justify-center">
-        <div className="max-w-xl  w-full mb-64 p-2">
+        <div className="max-w-xl  w-full mb-52 p-2">
           <p className='text-[36px] font-normal font-comfortaa text-center text-white'>
             I’m a <span className='font-bold'>game developer</span>
             <br />

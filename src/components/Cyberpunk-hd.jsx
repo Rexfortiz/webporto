@@ -7,7 +7,7 @@ Source: https://sketchfab.com/3d-models/a-mysterious-adventure-3d-editor-challen
 Title: A Mysterious Adventure - 3D Editor Challenge
 */
 
-import { useEffect, useLayoutEffect, useRef } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useGLTF, useAnimations, useScroll, SpotLight, Html } from '@react-three/drei'
 import gsap from 'gsap'
 import { useFrame } from '@react-three/fiber'
@@ -37,6 +37,10 @@ export function Cyberpunk(props) {
   const glassref = useRef();
   const topSpotLight = useRef();
 
+  const [selectedWebIndex, setSelectedWebIndex] = useState(null)
+  const [selectedGameIndex, setSelectedGameIndex] = useState(null)
+  
+
   useEffect(() => {
     actions[names[0]].reset().fadeIn(0.5).play()
     mainSpotLight.current.target = mainSpotLightTarget.current;
@@ -45,8 +49,57 @@ export function Cyberpunk(props) {
   },[])
 
   useFrame(() => {
-    tl.current.seek(scroll.offset * tl.current.duration())
+    const progress = scroll.offset * tl.current.duration()
+    tl.current.seek(progress)
+
+    switch (true) {
+      case progress >= 2 && progress <= 2.5:
+        setSelectedWebIndex(1);
+        break;
+      case progress > 2.5 && progress <= 3:
+        setSelectedWebIndex(0);
+        break;
+      case progress > 3 && progress <= 3.5:
+        setSelectedWebIndex(5);
+        break;
+      case progress > 3.5 && progress <= 4:
+        setSelectedWebIndex(4);
+        break;
+      case progress > 4 && progress <= 4.5:
+        setSelectedWebIndex(3);
+        break;
+      case progress > 4.5 && progress <= 5:
+        setSelectedWebIndex(2);
+        break;
+      default:
+        break;
+    }
+
+    switch(true){
+      case progress >= 6.5 && progress <= 7:
+        setSelectedGameIndex(5);
+        break;
+      case progress >= 7 && progress <= 7.5:
+        setSelectedGameIndex(4);
+        break;
+      case progress >= 7.5 && progress <= 8:
+        setSelectedGameIndex(3);
+        break;  
+      case progress >= 8 && progress <= 8.5:
+        setSelectedGameIndex(2);
+        break;    
+      case progress >= 8.5 && progress <= 9:
+        setSelectedGameIndex(1);
+        break;
+      case progress >= 9 && progress <= 9.5:
+        setSelectedGameIndex(0);
+        break;
+      case progress >= 9.5 && progress <= 10:
+        setSelectedGameIndex(6);
+        break;
+    }
   })
+
 
   useLayoutEffect(() => {
     tl.current = gsap.timeline();
@@ -78,6 +131,13 @@ export function Cyberpunk(props) {
     //image spin
 
     //image1
+    tl.current.to(
+      webPorto.current.rotation, {
+        duration: 0.3,
+        y: ((Math.PI * 2) / 6) * 0,
+      },
+      2
+    );
     tl.current.to(
       webPorto.current.rotation, {
         duration: 0.3,
@@ -114,6 +174,13 @@ export function Cyberpunk(props) {
         y: ((Math.PI * 2) / 6) * 5,
       },
       4.5
+    );
+    tl.current.to(
+      webPorto.current.rotation, {
+        duration: 0.3,
+        y: ((Math.PI * 2) / 6) * 5,
+      },
+      5
     );
 
     //move to gameporto BENERIN BAGIAN INI
@@ -191,7 +258,16 @@ export function Cyberpunk(props) {
         x: -45,
         z: -80
       },
-      13
+      10
+    );
+    tl.current.to(
+      group.current.rotation, {
+        duration: 1,
+        x: 0,
+        y: -1.23,
+        z: 0,
+      },
+      10
     );
     tl.current.to(
       group.current.rotation, {
@@ -207,10 +283,10 @@ export function Cyberpunk(props) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group ref={webPorto} position={[150,-130,200]} >
-        <CarouselWeb  />
+        <CarouselWeb selectIndex={selectedWebIndex} />
       </group>
       <group ref={gamePorto} position={[-340,-140,-140]}> 
-        <CarouselGame />
+        <CarouselGame selectIndex={selectedGameIndex}/>
       </group>
       <group name="Sketchfab_Scene" >
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>

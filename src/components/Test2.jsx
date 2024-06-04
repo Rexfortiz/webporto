@@ -37,7 +37,7 @@ export const Test2 = () => {
         <ScrollControls pages={14} damping={0.2}>
           {/* <Overlay /> */}
           <IntroductionModel textIntro={textIntro} />
-
+          
           <ContentOverlay />
           <Cyberpunk />
         </ScrollControls>

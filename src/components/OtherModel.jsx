@@ -46,7 +46,6 @@ const OtherModel = () => {
           }}
         >
           <ambientLight intensity={0.3} />
-
           <PerspectiveCamera makeDefault position={[0,0,10]} />
           <group ref={objectRef}>
             <Square userData={{ scrollTriggerRef: scrollRef }} />

@@ -2,7 +2,7 @@ import { Html } from '@react-three/drei'
 import WebCard from '../cards/WebCard'
 import { webPorto } from '../constants'
 
-const CarouselWeb = ({ radius = 1.4 * 15, count = 6}) => {
+const CarouselWeb = ({ selectIndex, radius = 1.4 * 15, count = 6}) => {
 
   return (
     <>
@@ -15,6 +15,7 @@ const CarouselWeb = ({ radius = 1.4 * 15, count = 6}) => {
             0,
             (Math.cos((i / count) * Math.PI * 2) * radius)]}
           rotation={[0, Math.PI + (i / count) * Math.PI * 2, 0]}
+          select={i == selectIndex}
         />
       ))}
     </>

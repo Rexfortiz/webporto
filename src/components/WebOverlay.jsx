@@ -132,7 +132,7 @@ const WebOverlay = (props) => {
   
   return (
     <section
-      className={`h-[330vh] relative flex flex-col justify-center border border-red-500 items-end`}
+      className={`relative flex flex-col justify-center border border-red-500 items-end`}
       style={{
         opacity: props.opacity,
       }}

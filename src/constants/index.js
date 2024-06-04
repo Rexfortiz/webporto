@@ -98,12 +98,16 @@ export const webPortoContent = [
     desc:"I created this website to improve my Tailwind CSS skills by following a tutorial on YouTube",
     skill: [
       {
-        img: "/icons/javascript.png",
-        text: "Javascript"
+        img: "/icons/react.png",
+        text: "React"
       },
       {
-        img: "/icons/javascript.png",
-        text: "Javascript"
+        img: "/icons/typescript.png",
+        text: "Typescript"
+      },
+      {
+        img: "/icons/tailwindcss.svg",
+        text: "TailwindCSS"
       },
     ]
   },
@@ -112,83 +116,209 @@ export const webPortoContent = [
     img: "/web/promptify.png",
     url: "google.com",
     desc:"Promptify is a web application for sharing AI prompts. I created this by following a tutorial on YouTube as I learned to develop backend functionality.",
-    skill: [{
-      img: "/icons/javascript.png",
-      text: "Javascript"
-    }]
-    
+    skill: [
+      {
+        img: "/icons/next-js.svg",
+        text: "NextJs"
+      },
+      {
+        img: "/icons/typescript.png",
+        text: "Typescript"
+      },
+      {
+        img: "/icons/tailwindcss.svg",
+        text: "TailwindCSS"
+      },
+      {
+        img: "/icons/mongodb.svg",
+        text: "MongoDB"
+      },
+    ] 
   },
   {
     name: "Bumi Commerce",
     img: "/web/lensi.png",
     url: "google.com",
     desc: "I created this full-stack eCommerce website using NextJS, Payload CMS, and Stripe by following a tutorial on YouTube and customizing it to make my own version.",
-    skill: [{
-      img: "/icons/javascript.png",
-      text: "Javascript"
-    }]
-    
+    skill: [
+      {
+        img: "/icons/next-js.svg",
+        text: "NextJs"
+      },
+      {
+        img: "/icons/typescript.png",
+        text: "Typescript"
+      },
+      {
+        img: "/icons/tailwindcss.svg",
+        text: "TailwindCSS"
+      },
+      {
+        img: "/icons/mongodb.svg",
+        text: "MongoDB"
+      },
+      {
+        img: "/icons/payload.png",
+        text: "Payload"
+      },
+    ] 
   },
   {
     name: "Lensi",
     img: "/web/lensi.png",
     url: "google.com",
     desc:"This is a fully-featured social web application with a simple design, created using NextJS 14 and MongoDB. Users can post, like, comment, reply, follow each other, and receive notifications of these activities.",
-    skill: [{
-      img: "/icons/javascript.png",
-      text: "Javascript"
-    }]
+    skill: [
+      {
+        img: "/icons/next-js.svg",
+        text: "NextJs"
+      },
+      {
+        img: "/icons/typescript.png",
+        text: "Typescript"
+      },
+      {
+        img: "/icons/tailwindcss.svg",
+        text: "TailwindCSS"
+      },
+      {
+        img: "/icons/mongodb.svg",
+        text: "MongoDB"
+      },
+
+    ] 
   },
   {
     name: "Web Portofolio",
     img: "/web/webporto.png",
     url: "google.com",
     desc:"This Website",
-    skill: [{
-      img: "/icons/javascript.png",
-      text: "Javascript"
-    },
-    {
-      img: "/icons/html.png",
-      text: "HTML"
-    }]
+    skill: [
+      {
+        img: "/icons/next-js.svg",
+        text: "NextJs"
+      },
+      {
+        img: "/icons/typescript.png",
+        text: "Typescript"
+      },
+      {
+        img: "/icons/tailwindcss.svg",
+        text: "TailwindCSS"
+      },
+      {
+        img: "/icons/mongodb.svg",
+        text: "MongoDB"
+      },
+    ] 
   },
 ]
 
 export const gamePorto = [
   {
-    name: "Food Melody",
-    img: "/web/nike.png",
-    url: "google.com",
-  },
-  {
-    name: "Ndugal",
-    img: "/web/aws.png",
-    url: "googles.com",
-  },
-  {
-    name: "Find: Better Place",
-    img: "/web/webporto.png",
-    url: "google.com",
-  },
-  {
-    name: "STMM GO!",
-    img: "/web/lensi.png",
+    name: "Salvia's Scroll Atelier",
+    img: "/game/salvia.png",
     url: "google.com",
   },
   {
     name: "Bakso Shop",
-    img: "/web/lensi.png",
+    img: "/game/bakso.png",
     url: "google.com",
   },
   {
-    name: "Salvia's Scroll Atelier",
-    img: "/web/promptify.png",
+    name: "STMM GO!",
+    img: "/game/stmmgo.png",
+    url: "google.com",
+  },
+  {
+    name: "Find: Better Place",
+    img: "/game/find.png",
+    url: "google.com",
+  },
+  {
+    name: "Ndugal",
+    img: "/game/ndugal.png",
+    url: "googles.com",
+  },
+  //1
+  {
+    name: "Food Melody",
+    img: "/game/foodmelody.png",
     url: "google.com",
   },
   {
     name: "I Am Leaving",
-    img: "/web/aws.png",
+    img: "/game/imleaving.png",
     url: "https://peek-mee.itch.io/iamleaving",
   },
+]
+
+export const gamePortoContent = [
+  {
+    name: "Food Melody",
+    playUrl: "https://thelegokid4455.itch.io/food-melody-indonesian-edition",
+    trailer: "https://www.youtube.com/watch?v=R0_5fiVEPZU",
+    desc: "Food Melody is a rhythm game designed to introduce local Indonesian cuisine through engaging gameplay. It combines traditional Indonesian foods with rhythmic challenges, offering a unique and educational experience.",
+    jobdesk: "Game Design, Sound Design, Reseach"
+  },
+  {
+    name: "Ndugal",
+    playUrl: "unavailable",
+    trailer: "https://www.youtube.com/watch?v=8_SI6Yzt2vg",
+    desc: "Ndugal, which means 'naughty', is a first-person shooter PvE game inspired by the Indonesian tradition of playing with rubber band guns. The game features three distinct levels and two types of enemies, each with unique behaviors.",
+    jobdesk: "Game Design, Sound Design"
+  },
+  {
+    name: "Find: Better Place",
+    playUrl: "https://rexfortis.itch.io/find-better-place",
+    trailer: "https://youtu.be/83GAlfODNvE",
+    desc: "Find is a multiplayer co-op puzzle game that draws on the local story of the kancil (mouse deer) stealing cucumbers. The game addresses environmental issues by presenting an alternative perspective: the kancil is forced to steal food because its forest habitat has been destroyed.",
+    jobdesk: "Level and Mechanics Design, Sound Design"
+  },
+  {
+    name: "STMM GO!",
+    playUrl: "unavailable",
+    trailer: "https://youtu.be/83GAlfODNvE",
+    desc: "STMM Go is a game we developed at the client's request to introduce the campus through interactive gameplay. We conducted thorough research on each department to create engaging mini-games that accurately represent their unique features and experiences.",
+    jobdesk: "Level and Mechanics Design, Sound Design, PR Lead, and Reseach"
+  },
+  {
+    name: "Bakso Shop",
+    playUrl: "https://rexfortis.itch.io/bakso-shop",
+    trailer: "unavailable",
+    desc: "Bakso Shop is a simulation game where players take on the role of a meatball vendor. Players can shop for ingredients, prepare and sell bakso, take breaks, and decorate their shop and home.",
+    jobdesk: "Game Design, Sound Design, and Programmer"
+  },
+  {
+    name: "Salvia's Scroll Atelier",
+    playUrl: "https://rexfortis.itch.io/salvias-scroll-atelier",
+    trailer: "unavailable",
+    desc: "Imagine having magical energy but being unable to use it directly. Salvia's Scroll Atelier is a game about a witch who sells magic scrolls because she can't use magic herself. The game includes several mini-games, each with specific guidelines, to create the scrolls.",
+    jobdesk: "Game Design, Sound Design",
+  },
+  {
+    name: "I Am Leaving",
+    playUrl: "https://peek-mee.itch.io/iamleaving",
+    trailer: "unavailable",
+    desc: "'I Am Leaving' is a game where players pack their belongings as they prepare to depart after completing their studies. Throughout the packing process, players reminisce about the memories associated with each item, reflecting on the journey they've had alongside their belongings.",
+    jobdesk: "Mechanics Design, Sound Design"
+  },
+]
+
+export const SocialMedia = [
+  {
+    name: "Instagram",
+    img: "/icons/html.png",
+    url: "https://instagram.com/"
+  },
+  {
+    name: "Itch io",
+    img: "/icons/css.png",
+    url: "https://itch.io"
+  },
+  {
+    name: "Linkedin",
+    img: "/icons/javascript.png",
+    url: "https://linkedin.com"
+  }
 ]

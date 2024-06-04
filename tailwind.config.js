@@ -34,8 +34,8 @@ export default {
         }
       },
       boxShadow: {
-        section: '0 0px 240px 300px',
-        section_lg: '0 0px 140px 250px',
+        section: '0 0px 180px 220px',
+        section_lg: '0 0px 120px 170px',
         tech_inner: 'inset 0 0 140px 250px rgb(0 0 0 / 0.5)',
       },
     },

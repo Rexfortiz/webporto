@@ -1,8 +1,8 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
-import { webPortoContent } from "../constants";
-import WebCardContent from "../cards/WebCardContent";
+import { gamePortoContent, webPortoContent } from "../constants";
+import GameCardContent from "../cards/GameCardContent";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -139,8 +139,8 @@ const GameOverlay = (props) => {
     >
       <div className="h-full w-1/2 flex justify-center">
         <div className="h-full border px-8 pt-52 flex flex-col items-center gap-5 w-full">
-          {webPortoContent.map((content, index) => (
-            <WebCardContent ref={refs[index]} key={content.name} title={content.name} desc={content.desc} skillList={content.skill} />
+          {gamePortoContent.map((content, index) => (
+            <GameCardContent ref={refs[index]} key={content.name} title={content.name} desc={content.desc} jobdesk={content.jobdesk} trailer={content.trailer} play={content.playUrl} />
           ))}
         </div>
       </div>

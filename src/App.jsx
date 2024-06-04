@@ -1,16 +1,36 @@
-import Navbar from "./components/Navbar"
-import { Canvas, useFrame } from "@react-three/fiber"
-import { Experience } from "./components/Experience"
+
+import { Canvas } from "@react-three/fiber"
 import { Test2 } from "./components/Test2"
+import { Suspense, useEffect, useState } from "react"
+import Loading from "./components/Loading"
 
 
-//position: [490, 180, 0] camera position for rotate
+
 
 const App = () => {
+
+    const [windowSize, setWindowSize] = useState({
+      width: window.innerWidth,
+      height: window.innerHeight
+    });
+  
+    useEffect(() => {
+      const handleResize = () => {
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight
+        });
+      };
+      console.log(windowSize.width)
+  
+    }, [windowSize]);
+    
+//render mobile mode ketika width lebih kecil dari sekian
 
 
   return (
     <>
+    {}
       <Canvas
         shadows
         camera={{
@@ -18,7 +38,9 @@ const App = () => {
           position: [20, 50, 350],
         }}
       >
-        <Test2 />
+        <Suspense fallback={<Loading />} >
+          <Test2 /> 
+        </Suspense>
         {/* <Experience /> */}
       </Canvas>
     </>

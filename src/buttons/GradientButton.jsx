@@ -1,10 +1,13 @@
 import React from 'react'
 
-const GradientButton = ({text, img}) => {
+const GradientButton = ({text, link}) => {
   return (
-    <button className='gradient-btn px-8 py-5 text-white font-comfortaa'>
-      {text}
-    </button>
+    <a href={link} target='_blank'>
+      <button disabled={link == "unavailable"} className={`gradient-btn px-8 ${link == "unavailable" ? "py-[18px]" : "py-5"} text-white text-[16px] font-bold font-comfortaa`}>
+        <p className={`${link == "unavailable" && "text-[10px]"}`}>{text}</p>
+        <p className='text-[10px]'>{link == "unavailable" && "(Unavailable)"}</p>
+      </button>
+    </a>
   )
 }
 
