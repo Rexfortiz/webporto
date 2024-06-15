@@ -206,13 +206,13 @@ const ContactMobile= () => {
         <h1 className='my-5 text-white font-sans font-bold max-md:text-[80px] max-sm:text-[65px] text-[100px] gradient-about'>Contact Me!</h1>
         <form ref={form} onSubmit={sendEmail} className='flex flex-col gap-5 w-[512px] max-sm:w-full font-comfortaa mb-80'>
           <input type="text" name="user_name" placeholder='Your Name' 
-            className='h-[52px] max-sm:h-[50px] pl-4 rounded-xl backdrop-blur-[2px] backdrop-filter gradient-input text-white' 
+            className='h-[52px] max-sm:h-[50px] max-sm:text-[14px] pl-4 rounded-xl backdrop-blur-[2px] backdrop-filter gradient-input text-white' 
           />
           <input type="email" name="user_email" placeholder='your_email@email.com' 
-            className='h-[52px] max-sm:h-[50px] pl-4 rounded-xl backdrop-blur-[2px] backdrop-filter gradient-input text-white'
+            className='h-[52px] max-sm:h-[50px] max-sm:text-[14px] pl-4 rounded-xl backdrop-blur-[2px] backdrop-filter gradient-input text-white'
           />
           <textarea name="message" placeholder='Write your message here!' 
-            className='h-[152px] max-sm:h-[140px] resize-none pl-4 pt-4 rounded-xl backdrop-blur-[2px] backdrop-filter gradient-input text-white'
+            className='h-[152px] max-sm:h-[140px] max-sm:text-[14px] resize-none pl-4 pt-4 rounded-xl backdrop-blur-[2px] backdrop-filter gradient-input text-white'
           />
           <input type="submit" disabled={isLoading !== "nothing"}
             value={isLoading == 'nothing' && "Send" || isLoading == 'sending' && "Sending..." || isLoading == 'sent' && "Sent" || isLoading == 'refreshing' && "Sent"}

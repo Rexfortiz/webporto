@@ -76,7 +76,7 @@ export const webPortoContent = [
     img: "/web/aws.png",
     imgMobile: "/web/aws-mobile.png",
     url: "https://aws-clone.thomasfarel.com",
-    github: "",
+    github: "https://github.com/Rexfortiz/aws-clone",
     desc:"This is the first project that i made.  I developed a comprehensive clone of the AWS (Amazon Web Services) website. The primary objective was to replicate the design, functionality, and user experience of the original AWS website.",
     skill: [
       {
@@ -145,7 +145,7 @@ export const webPortoContent = [
     name: "Bumi Commerce",
     img: "/web/lensi.png",
     imgMobile: "/web/bumishop-mobile.png",
-    url: "https://bumishop.payloadcms.app",
+    url: "https://www.youtube.com/watch?v=ll9IeayxCx4",
     github: "https://github.com/Rexfortiz/e-commerce",
     desc: "I created this full-stack eCommerce website using NextJS, Payload CMS, and Stripe by following a tutorial on YouTube and customizing it to make my own version.",
     skill: [
