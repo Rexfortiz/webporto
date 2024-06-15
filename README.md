@@ -10,10 +10,10 @@
 <!-- [] tech stack -->
 <!-- [] About me
 [] bikin about me buat tiap section(game and web) -->
-[] portofolio
-  [] 2 section, web design and game design
-  [] sort by date
-[] contact me
+<!-- [] portofolio -->
+  <!-- [] 2 section, web design and game design -->
+  <!-- [] sort by date -->
+<!-- [] contact me -->
 
 <!-- [] bikin scroll behaviour kaya overlay.jsx buat gerakin tech -->
 
@@ -22,17 +22,19 @@
 todolist besok:
 <!-- [] add content ke webporto -->
   <!-- [] tinggal add technya -->
-[] gsap animation
-[] add zoom animation when photo carousel is onpoint
-  [] mungkin bikin variabel didalem carousel trus modify didalem cyberpunk-hd
+<!-- [] gsap animation
+[] add zoom animation when photo carousel is onpoint -->
+  <!-- [] mungkin bikin variabel didalem carousel trus modify didalem cyberpunk-hd -->
 
 <!-- [] isi value gameporto -->
 
 BESOK TANGGAL 29/05
 [] 1 moderate severity vulnerability in npm i emailjs/browser
 <!-- [] style contact me section, gather image from phone -->
-[] finish gsap animation
-[] make hovered effect on caraousel
-  [] pass some indicator to it 
+<!-- [] finish gsap animation -->
+<!-- [] make hovered effect on caraousel -->
+  <!-- [] pass some indicator to it  -->
 
-[] render mobile mode ketika width lebih kecil dari sekian
+<!-- [] render mobile mode ketika width lebih kecil dari sekian -->
+
+[] benerin gameporto content mobile biar kaya yg 3d

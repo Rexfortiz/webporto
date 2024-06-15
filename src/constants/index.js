@@ -60,8 +60,8 @@ export const webPorto = [
   },
   {
     name: "Bumi Commerce",
-    img: "/web/lensi.png",
-    url: "google.com",
+    img: "/web/bumishop.png",
+    url: "https://bumishop.payloadcms.app/",
   },
   {
     name: "Promptify",
@@ -74,7 +74,9 @@ export const webPortoContent = [
   {
     name: "AWS clone",
     img: "/web/aws.png",
-    url: "googles.com",
+    imgMobile: "/web/aws-mobile.png",
+    url: "https://aws-clone.thomasfarel.com",
+    github: "",
     desc:"This is the first project that i made.  I developed a comprehensive clone of the AWS (Amazon Web Services) website. The primary objective was to replicate the design, functionality, and user experience of the original AWS website.",
     skill: [
       {
@@ -94,7 +96,9 @@ export const webPortoContent = [
   {
     name: "Nike Clone",
     img: "/web/nike.png",
-    url: "google.com",
+    imgMobile: "/web/nike-mobile.png",
+    url: "https://nike-clone.thomasfarel.com",
+    github: "https://github.com/Rexfortiz/nike-clone",
     desc:"I created this website to improve my Tailwind CSS skills by following a tutorial on YouTube",
     skill: [
       {
@@ -114,7 +118,9 @@ export const webPortoContent = [
   {
     name: "Promptify",
     img: "/web/promptify.png",
-    url: "google.com",
+    imgMobile: "/web/promptify-mobile.png",
+    url: "https://promptify-proj-aa1n25cwn-thomas-farels-projects-2e07d47c.vercel.app",
+    github: "https://github.com/Rexfortiz/promptify-proj",
     desc:"Promptify is a web application for sharing AI prompts. I created this by following a tutorial on YouTube as I learned to develop backend functionality.",
     skill: [
       {
@@ -138,7 +144,9 @@ export const webPortoContent = [
   {
     name: "Bumi Commerce",
     img: "/web/lensi.png",
-    url: "google.com",
+    imgMobile: "/web/bumishop-mobile.png",
+    url: "https://bumishop.payloadcms.app",
+    github: "https://github.com/Rexfortiz/e-commerce",
     desc: "I created this full-stack eCommerce website using NextJS, Payload CMS, and Stripe by following a tutorial on YouTube and customizing it to make my own version.",
     skill: [
       {
@@ -166,7 +174,9 @@ export const webPortoContent = [
   {
     name: "Lensi",
     img: "/web/lensi.png",
-    url: "google.com",
+    imgMobile: "/web/lensi-mobile.png",
+    url: "https://lensi.vercel.app",
+    github: "https://github.com/Rexfortiz/Lensi",
     desc:"This is a fully-featured social web application with a simple design, created using NextJS 14 and MongoDB. Users can post, like, comment, reply, follow each other, and receive notifications of these activities.",
     skill: [
       {
@@ -191,7 +201,9 @@ export const webPortoContent = [
   {
     name: "Web Portofolio",
     img: "/web/webporto.png",
-    url: "google.com",
+    imgMobile: "/web/porto-mobile.png",
+    url: "https://thomasfarel.com",
+    github: "https://github.com/Rexfortiz/webporto",
     desc:"This Website",
     skill: [
       {
@@ -256,6 +268,7 @@ export const gamePorto = [
 export const gamePortoContent = [
   {
     name: "Food Melody",
+    imgMobile: "/game/food-mobile.png",
     playUrl: "https://thelegokid4455.itch.io/food-melody-indonesian-edition",
     trailer: "https://www.youtube.com/watch?v=R0_5fiVEPZU",
     desc: "Food Melody is a rhythm game designed to introduce local Indonesian cuisine through engaging gameplay. It combines traditional Indonesian foods with rhythmic challenges, offering a unique and educational experience.",
@@ -263,6 +276,7 @@ export const gamePortoContent = [
   },
   {
     name: "Ndugal",
+    imgMobile: "/game/ndugal-mobile.png",
     playUrl: "unavailable",
     trailer: "https://www.youtube.com/watch?v=8_SI6Yzt2vg",
     desc: "Ndugal, which means 'naughty', is a first-person shooter PvE game inspired by the Indonesian tradition of playing with rubber band guns. The game features three distinct levels and two types of enemies, each with unique behaviors.",
@@ -270,6 +284,7 @@ export const gamePortoContent = [
   },
   {
     name: "Find: Better Place",
+    imgMobile: "/game/find-mobile.png",
     playUrl: "https://rexfortis.itch.io/find-better-place",
     trailer: "https://youtu.be/83GAlfODNvE",
     desc: "Find is a multiplayer co-op puzzle game that draws on the local story of the kancil (mouse deer) stealing cucumbers. The game addresses environmental issues by presenting an alternative perspective: the kancil is forced to steal food because its forest habitat has been destroyed.",
@@ -277,6 +292,7 @@ export const gamePortoContent = [
   },
   {
     name: "STMM GO!",
+    imgMobile: "/game/stmm-mobile.png",
     playUrl: "unavailable",
     trailer: "https://youtu.be/83GAlfODNvE",
     desc: "STMM Go is a game we developed at the client's request to introduce the campus through interactive gameplay. We conducted thorough research on each department to create engaging mini-games that accurately represent their unique features and experiences.",
@@ -284,6 +300,7 @@ export const gamePortoContent = [
   },
   {
     name: "Bakso Shop",
+    imgMobile: "/game/bakso-mobile.png",
     playUrl: "https://rexfortis.itch.io/bakso-shop",
     trailer: "unavailable",
     desc: "Bakso Shop is a simulation game where players take on the role of a meatball vendor. Players can shop for ingredients, prepare and sell bakso, take breaks, and decorate their shop and home.",
@@ -291,6 +308,7 @@ export const gamePortoContent = [
   },
   {
     name: "Salvia's Scroll Atelier",
+    imgMobile: "/game/salvia-mobile.png",
     playUrl: "https://rexfortis.itch.io/salvias-scroll-atelier",
     trailer: "unavailable",
     desc: "Imagine having magical energy but being unable to use it directly. Salvia's Scroll Atelier is a game about a witch who sells magic scrolls because she can't use magic herself. The game includes several mini-games, each with specific guidelines, to create the scrolls.",
@@ -298,6 +316,7 @@ export const gamePortoContent = [
   },
   {
     name: "I Am Leaving",
+    imgMobile: "/game/imleaving-mobile.png",
     playUrl: "https://peek-mee.itch.io/iamleaving",
     trailer: "unavailable",
     desc: "'I Am Leaving' is a game where players pack their belongings as they prepare to depart after completing their studies. Throughout the packing process, players reminisce about the memories associated with each item, reflecting on the journey they've had alongside their belongings.",
@@ -308,17 +327,17 @@ export const gamePortoContent = [
 export const SocialMedia = [
   {
     name: "Instagram",
-    img: "/icons/html.png",
-    url: "https://instagram.com/"
-  },
-  {
-    name: "Itch io",
-    img: "/icons/css.png",
-    url: "https://itch.io"
+    img: "/icons/instagram.svg",
+    url: "https://www.instagram.com/thomasfarelino/"
   },
   {
     name: "Linkedin",
-    img: "/icons/javascript.png",
-    url: "https://linkedin.com"
-  }
+    img: "/icons/linkedin-in.svg",
+    url: "https://www.linkedin.com/in/thomas-farel-a3ab5523a/"
+  },
+  {
+    name: "Itch io",
+    img: "/icons/itch-io.svg",
+    url: "https://rexfortis.itch.io"
+  },
 ]

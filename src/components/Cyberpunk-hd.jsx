@@ -51,24 +51,25 @@ export function Cyberpunk(props) {
   useFrame(() => {
     const progress = scroll.offset * tl.current.duration()
     tl.current.seek(progress)
+    console.log(progress)
 
     switch (true) {
-      case progress >= 2 && progress <= 2.5:
+      case progress >= 2.5 && progress <= 3:
         setSelectedWebIndex(1);
         break;
-      case progress > 2.5 && progress <= 3:
+      case progress > 3 && progress <= 3.5:
         setSelectedWebIndex(0);
         break;
-      case progress > 3 && progress <= 3.5:
+      case progress > 3.5 && progress <= 4:
         setSelectedWebIndex(5);
         break;
-      case progress > 3.5 && progress <= 4:
+      case progress > 4 && progress <= 4.5:
         setSelectedWebIndex(4);
         break;
-      case progress > 4 && progress <= 4.5:
+      case progress > 4.5 && progress <= 5:
         setSelectedWebIndex(3);
         break;
-      case progress > 4.5 && progress <= 5:
+      case progress > 5 && progress <= 5.5:
         setSelectedWebIndex(2);
         break;
       default:
@@ -117,7 +118,7 @@ export function Cyberpunk(props) {
         duration: 1,
         y: 360,
       },
-      1.3
+      1.5
     );
 
     //Web Porto
@@ -126,7 +127,7 @@ export function Cyberpunk(props) {
         duration: 0.6,
         y: -0.55,
       },
-      1.7
+      1.8
     );
     //image spin
 
@@ -136,34 +137,26 @@ export function Cyberpunk(props) {
         duration: 0.3,
         y: ((Math.PI * 2) / 6) * 0,
       },
-      2
+      2.5
     );
     tl.current.to(
       webPorto.current.rotation, {
         duration: 0.3,
         y: ((Math.PI * 2) / 6) * 1,
       },
-      2.5
+      3
     );
     tl.current.to(
       webPorto.current.rotation, {
         duration: 0.3,
         y: ((Math.PI * 2) / 6) * 2,
       },
-      3
+      3.5
     );
     tl.current.to(
       webPorto.current.rotation, {
         duration: 0.3,
         y: ((Math.PI * 2) / 6) * 3,
-      },
-      3.5
-    );
-    
-    tl.current.to(
-      webPorto.current.rotation, {
-        duration: 0.3,
-        y: ((Math.PI * 2) / 6) * 4,
       },
       4
     );
@@ -171,16 +164,24 @@ export function Cyberpunk(props) {
     tl.current.to(
       webPorto.current.rotation, {
         duration: 0.3,
-        y: ((Math.PI * 2) / 6) * 5,
+        y: ((Math.PI * 2) / 6) * 4,
       },
       4.5
     );
+    
     tl.current.to(
       webPorto.current.rotation, {
         duration: 0.3,
         y: ((Math.PI * 2) / 6) * 5,
       },
       5
+    );
+    tl.current.to(
+      webPorto.current.rotation, {
+        duration: 0.3,
+        y: ((Math.PI * 2) / 6) * 5,
+      },
+      5.5
     );
 
     //move to gameporto BENERIN BAGIAN INI
@@ -191,7 +192,7 @@ export function Cyberpunk(props) {
         x: -0.09,
         z: -0.09,
       },
-      5.1
+      5.6
     );
     tl.current.to(
       group.current.position, {
@@ -200,7 +201,7 @@ export function Cyberpunk(props) {
         z: -140,
         y: 308
       },
-      5.1
+      5.6
     );
 
     //gameporto image spin
@@ -209,27 +210,19 @@ export function Cyberpunk(props) {
         duration: 0.3,
         y: ((Math.PI * 2) / 7) * 1,
       },
-      7
+      7.5
     );
     tl.current.to(
       gamePorto.current.rotation, {
         duration: 0.3,
         y: ((Math.PI * 2) / 7) * 2,
       },
-      7.5
+      8
     );
     tl.current.to(
       gamePorto.current.rotation, {
         duration: 0.3,
         y: ((Math.PI * 2) / 7) * 3,
-      },
-      8
-    );
-    
-    tl.current.to(
-      gamePorto.current.rotation, {
-        duration: 0.3,
-        y: ((Math.PI * 2) / 7) * 4,
       },
       8.5
     );
@@ -237,16 +230,24 @@ export function Cyberpunk(props) {
     tl.current.to(
       gamePorto.current.rotation, {
         duration: 0.3,
-        y: ((Math.PI * 2) / 7) * 5,
+        y: ((Math.PI * 2) / 7) * 4,
       },
       9
+    );
+    
+    tl.current.to(
+      gamePorto.current.rotation, {
+        duration: 0.3,
+        y: ((Math.PI * 2) / 7) * 5,
+      },
+      9.5
     );
     tl.current.to(
       gamePorto.current.rotation, {
         duration: 0.3,
         y: ((Math.PI * 2) / 7) * 6,
       },
-      9.5
+      10
     );
 
     
@@ -258,7 +259,7 @@ export function Cyberpunk(props) {
         x: -45,
         z: -80
       },
-      10
+      10.6
     );
     tl.current.to(
       group.current.rotation, {
@@ -267,7 +268,7 @@ export function Cyberpunk(props) {
         y: -1.23,
         z: 0,
       },
-      10
+      10.6
     );
     tl.current.to(
       group.current.rotation, {

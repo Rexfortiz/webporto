@@ -34,7 +34,7 @@ const OtherModel = () => {
       });
     });
   }, []);
-
+  //sda
   return (
     <section className=' border h-[100vh] flex justify-center items-center'>
       <div className='border-red-400 border'>

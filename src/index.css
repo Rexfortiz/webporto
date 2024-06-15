@@ -11,11 +11,16 @@
   
 }
 
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
 .display{
   width: 1800px;
-  /* Center the content horizontally */
+
   margin: 0 auto;
-  /* Allow horizontal scrolling */
+
   overflow-x: auto;
 }
 
@@ -30,6 +35,9 @@
 
 .gradient{
   background: radial-gradient(rgb(4,4,4,0.7), rgb(2,5,31,0.7))
+}
+.gradient-input{
+  background: radial-gradient(rgba(31, 31, 31, 0.5), rgba(43, 43, 43, 0.5))
 }
 
 .gradient-btn{
@@ -81,4 +89,130 @@
 }
 @keyframes l14 { 
   100% {transform: rotate(0.5deg)}
+}
+
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  padding: 120px 24px 160px 24px;
+  pointer-events: none;
+}
+
+.main:before {
+  position: absolute;
+  background-color: #0D0D0D;
+  content: "";
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.main:after {
+  content: "";
+  background-image: url("/images/dots-bg.svg");
+  z-index: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0.3;
+  filter: invert(0);
+}
+
+.gradient-mobile {
+  height: fit-content;
+  z-index: 3;
+  width: 100%;
+  max-width: 640px;
+  background-image: radial-gradient(
+      at 27% 37%,
+      hsla(215, 98%, 61%, 1) 0px,
+      transparent 0%
+    ),
+    radial-gradient(at 97% 21%, rgba(114, 254, 126, 0.6) 0px, transparent 50%),
+    radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 0.6) 0px, transparent 50%),
+    radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 0.6) 0px, transparent 50%),
+    radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 0.6) 0px, transparent 50%),
+    radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 0.6) 0px, transparent 50%),
+    radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 0.6) 0px, transparent 50%);
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  filter: blur(100px) saturate(150%);
+  top: 80px;
+  opacity: 0.15;
+}
+
+.layered-text-container {
+  position: relative;
+  display: inline-block;
+}
+
+.layered-text {
+  position: relative;
+  color: white;
+  margin: 0;
+}
+
+.layered-text::before,
+.layered-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.layered-text::before {
+  color: white;
+  z-index: 1;
+}
+
+.layered-text::after {
+  -webkit-text-stroke: 1px white; /* Adjust stroke width as needed */
+  color: transparent;
+  z-index: 3;
+}
+
+.wave-1{
+  background-color: #161616;
+  clip-path: polygon(100% 0%, 0% 0% , 0.00% 97.67%, 2.00% 97.57%, 4.00% 97.30%, 6.00% 96.85%, 8.00% 96.23%, 10.00% 95.45%, 12.00% 94.53%, 14.00% 93.48%, 16.00% 92.33%, 18.00% 91.10%, 20.00% 89.81%, 22.00% 88.49%, 24.00% 87.15%, 26.00% 85.83%, 28.00% 84.55%, 30.00% 83.34%, 32.00% 82.22%, 34.00% 81.21%, 36.00% 80.32%, 38.00% 79.59%, 40.00% 79.01%, 42.00% 78.61%, 44.00% 78.38%, 46.00% 78.34%, 48.00% 78.48%, 50.00% 78.81%, 52.00% 79.31%, 54.00% 79.97%, 56.00% 80.79%, 58.00% 81.75%, 60.00% 82.82%, 62.00% 83.99%, 64.00% 85.24%, 66.00% 86.55%, 68.00% 87.88%, 70.00% 89.21%, 72.00% 90.52%, 74.00% 91.78%, 76.00% 92.97%, 78.00% 94.07%, 80.00% 95.05%, 82.00% 95.89%, 84.00% 96.59%, 86.00% 97.12%, 88.00% 97.47%, 90.00% 97.65%, 92.00% 97.64%, 94.00% 97.45%, 96.00% 97.07%, 98.00% 96.53%, 100.00% 95.82%);}
+.wave-2{
+  background-color: #202020;
+  clip-path: polygon(100% 0%, 0% 0% , 0.00% 97.67%, 2.00% 97.52%, 4.00% 97.07%, 6.00% 96.35%, 8.00% 95.37%, 10.00% 94.16%, 12.00% 92.76%, 14.00% 91.22%, 16.00% 89.57%, 18.00% 87.88%, 20.00% 86.19%, 22.00% 84.55%, 24.00% 83.03%, 26.00% 81.65%, 28.00% 80.47%, 30.00% 79.53%, 32.00% 78.84%, 34.00% 78.44%, 36.00% 78.34%, 38.00% 78.53%, 40.00% 79.01%, 42.00% 79.77%, 44.00% 80.79%, 46.00% 82.03%, 48.00% 83.45%, 50.00% 85.01%, 52.00% 86.67%, 54.00% 88.36%, 56.00% 90.05%, 58.00% 91.67%, 60.00% 93.18%, 62.00% 94.53%, 64.00% 95.68%, 66.00% 96.59%, 68.00% 97.23%, 70.00% 97.59%, 72.00% 97.65%, 74.00% 97.42%, 76.00% 96.90%, 78.00% 96.10%, 80.00% 95.05%, 82.00% 93.78%, 84.00% 92.33%, 86.00% 90.76%, 88.00% 89.09%, 90.00% 87.39%, 92.00% 85.71%, 94.00% 84.11%, 96.00% 82.62%, 98.00% 81.29%, 100.00% 80.18%);}
+
+.wave-3{
+  background-color: #292929;
+  clip-path: polygon(100% 0%, 0% 0% , 0.00% 99.33%, 2.00% 99.26%, 4.00% 99.04%, 6.00% 98.67%, 8.00% 98.16%, 10.00% 97.52%, 12.00% 96.75%, 14.00% 95.86%, 16.00% 94.88%, 18.00% 93.79%, 20.00% 92.63%, 22.00% 91.41%, 24.00% 90.14%, 26.00% 88.84%, 28.00% 87.52%, 30.00% 86.20%, 32.00% 84.91%, 34.00% 83.65%, 36.00% 82.44%, 38.00% 81.29%, 40.00% 80.23%, 42.00% 79.26%, 44.00% 78.40%, 46.00% 77.66%, 48.00% 77.05%, 50.00% 76.57%, 52.00% 76.24%, 54.00% 76.05%, 56.00% 76.00%, 58.00% 76.11%, 60.00% 76.37%, 62.00% 76.77%, 64.00% 77.31%, 66.00% 77.98%, 68.00% 78.77%, 70.00% 79.68%, 72.00% 80.69%, 74.00% 81.79%, 76.00% 82.97%, 78.00% 84.20%, 80.00% 85.48%, 82.00% 86.79%, 84.00% 88.11%, 86.00% 89.42%, 88.00% 90.71%, 90.00% 91.96%, 92.00% 93.16%, 94.00% 94.28%, 96.00% 95.33%, 98.00% 96.27%, 100.00% 97.11%);}
+
+.app {
+  @apply relative z-10 flex flex-col gap-48 justify-center items-center max-sm:px-3 max-md:px-12 max-lg:px-16 max-xl:px-32 max-2xl:px-60 px-80;
+}
+
+.gradient-btn-mobile{
+  background: linear-gradient(rgb(32,32,32,1), rgb(21,21,21,1));
+  border-radius: 24px;
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+.gradient-btn-mobile:disabled{
+  background: linear-gradient(rgb(21,21,21,1), rgb(32,32,32,1));
+  box-shadow: none;
+}
+
+.gradient-btn-mobile:hover{
+  box-shadow: 0 2px 20px 3px rgba(156, 156, 156, 0.815);
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow:0 0 0 50px white inset; /* Change the color to your own background color */
+  -webkit-text-fill-color: #d4d4d4;
+}
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 50px white inset;
+  -webkit-text-fill-color: #d4d4d4;
 }

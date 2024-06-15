@@ -132,13 +132,13 @@ const GameOverlay = (props) => {
   
   return (
     <section
-      className={`h-[330vh] relative flex flex-col justify-center border border-red-500 items-start`}
+      className={`h-[330vh] relative flex flex-col justify-center items-start`}
       style={{
         opacity: props.opacity,
       }}
     >
       <div className="h-full w-1/2 flex justify-center">
-        <div className="h-full border px-8 pt-52 flex flex-col items-center gap-5 w-full">
+        <div className="h-full px-8 pt-52 flex flex-col items-center gap-5 w-full">
           {gamePortoContent.map((content, index) => (
             <GameCardContent ref={refs[index]} key={content.name} title={content.name} desc={content.desc} jobdesk={content.jobdesk} trailer={content.trailer} play={content.playUrl} />
           ))}

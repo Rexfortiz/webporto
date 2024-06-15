@@ -3,46 +3,54 @@ import { Canvas } from "@react-three/fiber"
 import { Test2 } from "./components/Test2"
 import { Suspense, useEffect, useState } from "react"
 import Loading from "./components/Loading"
-
-
-
+import MobileApp from "./Mobile/MobileApp"
 
 const App = () => {
 
-    const [windowSize, setWindowSize] = useState({
+  const [ isMobile, setIsMobile ] = useState(null)
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight
+  });
+
+  const updateWindowSize = () => {
+    setWindowSize({
       width: window.innerWidth,
       height: window.innerHeight
     });
-  
-    useEffect(() => {
-      const handleResize = () => {
-        setWindowSize({
-          width: window.innerWidth,
-          height: window.innerHeight
-        });
-      };
-      console.log(windowSize.width)
-  
-    }, [windowSize]);
-    
-//render mobile mode ketika width lebih kecil dari sekian
+  };
 
+  useEffect(() => {
+    window.addEventListener("resize", updateWindowSize);
+    windowSize.width <= 1780 ? setIsMobile(true) : setIsMobile(false)
+    console.log(isMobile)
+    console.log(windowSize.width)
+    return () => {
+      window.removeEventListener("resize", updateWindowSize);
+    };
+  }, [windowSize]);
 
   return (
     <>
-    {}
-      <Canvas
-        shadows
-        camera={{
-          fov: 64,
-          position: [20, 50, 350],
-        }}
-      >
+      {
+        isMobile ?
         <Suspense fallback={<Loading />} >
-          <Test2 /> 
+          
+          <MobileApp />
         </Suspense>
-        {/* <Experience /> */}
-      </Canvas>
+        :
+        <Canvas
+          shadows
+          camera={{
+            fov: 64,
+            position: [20, 50, 350],
+          }}
+        >
+          <Suspense fallback={<Loading />} >
+            <Test2 /> 
+          </Suspense>
+        </Canvas>
+      }
     </>
   )
 }

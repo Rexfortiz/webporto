@@ -55,9 +55,9 @@ const ContactMe = () => {
 
   return (
     <section 
-      className='mt-[1000px] flex flex-col items-center max-2xl:px-[200px] px-[350px]'
+      className='mt-[800px] flex flex-col items-center max-2xl:px-[200px] px-[350px]'
     >
-      <div className='flex w-full max-xl: h-[700px] py-14 gradient-about'>
+      <div className='flex w-[80%] max-xl: h-[700px] py-14 gradient-about'>
         <div className='flex flex-col w-full gap-5 justify-center '>
           <h3 className='text-white font-bold text-[46px]'>More About Me</h3>
           <p className='text-white font-comfortaa'>
@@ -78,11 +78,16 @@ const ContactMe = () => {
                   ref={(el) => (buttonRefs.current[index] = el)}
                   onMouseEnter={() => handleMouseEnter(index)}
                   onMouseLeave={() => handleMouseLeave(index)}
+                  className='bg-white p-3 h-[50px] w-[50px] rounded-full'
                 >
                   <img src={content.img} width={36}/>
                 </button>
               </a>
             ))}
+            <div className='bg-white px-5 h-[55px] flex gap-2 justify-center items-center rounded-full'>
+              <img src="/icons/email.svg" width={20} />
+              <p className='font-comfortaa font-bold'>thomasfarel9422@gmail.com</p>
+            </div>
           </div>
         </div>
         <div className=' w-full flex justify-center'>
@@ -99,7 +104,7 @@ const ContactMe = () => {
             className='h-[52px] pl-4 rounded-xl backdrop-blur-[17.9px] backdrop-filter gradient text-white'
           />
           <textarea name="message" placeholder='Write your message here!' 
-            className='h-[152px] pl-4 pt-4 rounded-xl backdrop-blur-[17.9px] backdrop-filter gradient text-white'
+            className='h-[152px] resize-none pl-4 pt-4 rounded-xl backdrop-blur-[17.9px] backdrop-filter gradient text-white'
           />
           <input type="submit" disabled={isLoading !== "nothing"}
             value={isLoading == 'nothing' && "Send" || isLoading == 'sending' && "Sending..." || isLoading == 'sent' && "Sent" || isLoading == 'refreshing' && "Sent"}
