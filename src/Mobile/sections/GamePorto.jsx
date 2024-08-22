@@ -1,4 +1,6 @@
-import React, {  useEffect, useRef } from 'react';
+/* eslint-disable */
+
+import {  useEffect, useRef } from 'react';
 import { gamePortoContent } from '../../constants'
 import Skill from '../../cards/Skill';
 import GradientButton from '../../buttons/GradientButton';

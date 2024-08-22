@@ -1,11 +1,14 @@
-import React, {  useEffect, useLayoutEffect, useRef } from 'react';
+/* eslint-disable */
+import React, {  useEffect, useLayoutEffect, useRef } from 'react'; 
 import { webPortoContent } from '../../constants'
 import Skill from '../../cards/Skill';
 import GradientButton from '../../buttons/GradientButton';
 
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
+import { ThreeDCardDemo } from '../mobileComponent/ui/3d-Card';
+import { AnimatedModal } from '../mobileComponent/ui/AnimatedModal';
+import { InfiniteMovingCards } from '../../components/ui/infinite-moving-cards';
 
 gsap.registerPlugin(ScrollTrigger) 
 
@@ -99,10 +102,14 @@ const WebPorto = () => {
   return (
     <section ref={sectionRef} className='w-full flex flex-col gap-5 items-center py-10'>
       <h1 ref={sectionRef2} className='text-white font-sans font-black text-[100px] max-lg:text-[80px] max-sm:text-[60px]'>Web Portofolio</h1>
+          <ThreeDCardDemo />
+          <AnimatedModal />
+          <InfiniteMovingCards />
       <div className="h-full flex justify-center w-full">
         <div className="h-full px-8 max-sm:px-0 pt-20 flex flex-col items-center gap-8 w-full">
         {webPortoContent.map((content, index) => {
             // Create refs for each WebPortoCard
+            // eslint-disable-next-line react-hooks/rules-of-hooks
             const divRef = useRef(null);
             const imgRef = useRef(null);
             const cardRef = useRef(null);
