@@ -23,7 +23,7 @@ const Hero = () => {
     gsap.to(wave1.current, {
       scrollTrigger: {
         trigger: test.current,
-        start: "center 35%",
+        start: "center 45%",
         end: "bottom 10%",
         scrub:true,
         // toggleActions: "play reverse play reverse", // Ensures the animation reverses when scrolling back up
@@ -34,7 +34,7 @@ const Hero = () => {
     gsap.to(wave2.current, {
       scrollTrigger: {
         trigger: test.current,
-        start: "center 35%",
+        start: "center 50%",
         end: "bottom 12%",
         scrub:true,
         toggleActions: "play reverse play reverse", // Ensures the animation reverses when scrolling back up
@@ -45,7 +45,7 @@ const Hero = () => {
     gsap.to(wave3.current, {
       scrollTrigger: {
         trigger: test.current,
-        start: "center 35%",
+        start: "center 60%",
         end: "bottom 14%",
         scrub:true,
         toggleActions: "play reverse play reverse",

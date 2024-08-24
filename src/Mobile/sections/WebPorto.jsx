@@ -97,14 +97,15 @@ const WebPorto = () => {
     
   }, [gsap])
 
-
-
   return (
     <section ref={sectionRef} className='w-full flex flex-col gap-5 items-center py-10'>
       <h1 ref={sectionRef2} className='text-white font-sans font-black text-[100px] max-lg:text-[80px] max-sm:text-[60px]'>Web Portofolio</h1>
-          <ThreeDCardDemo />
-          <AnimatedModal />
-          <InfiniteMovingCards />
+      <div className='overflow-y-hidden'>
+        <ThreeDCardDemo />
+        <AnimatedModal />
+        <InfiniteMovingCards />
+
+      </div>
       <div className="h-full flex justify-center w-full">
         <div className="h-full px-8 max-sm:px-0 pt-20 flex flex-col items-center gap-8 w-full">
         {webPortoContent.map((content, index) => {
