@@ -94,8 +94,14 @@ const WebPorto = () => {
   }, [gsap])
 
   return (
-    <section ref={sectionRef} id='webporto-mobile' className='w-full flex flex-col gap-5 items-center py-10'>
+    <section ref={sectionRef} id='webporto-mobile' className='w-full flex flex-col gap-5  py-10'>
       <h1 ref={sectionRef2} className='text-white font-sans font-black text-[100px] max-lg:text-[80px] max-sm:text-[50px]'>Web Portofolio</h1>
+      <p className='text-white font-comfortaa text-[20px] max-md:text-[16px] max-sm:text-[14px]'>
+            I have been deeply passionate about gaming, 
+            playing a wide variety of games since I was 2 years old. 
+            During my college years, I learned how to create and design games 
+            from scratch.
+          </p>
       <div className='overflow-y-hidden'>
         {/* <ThreeDCardDemo />
         <AnimatedModal />

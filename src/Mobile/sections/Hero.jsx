@@ -56,30 +56,27 @@ const Hero = () => {
   }, [])
 
   return (
-      <section ref={test} className='w-full flex flex-col items-center h-[800px] max-lg:h-[700px] max-sm:h-[650px]'>
-        <div className='w-full absolute'>
-          <WaveComp1 forwardedRef={wave1} />
-          <WaveComp2 forwardedRef={wave2} />
-          <WaveComp3 forwardedRef={wave3} />
-          {/* <div ref={wave1} className='wave-1 left-0 top-28 absolute w-full  h-[300px]' />
-          <div ref={wave2} className='wave-2 left-0 top-[-90px] absolute w-full z-[2] h-[300px]' />
-          <div ref={wave3} className='wave-3 left-0 top-[-170px] absolute w-full z-[4] h-[300px]' /> */}
-        </div>
-        <div   className='mt-[15vh] max-sm:mt-[20vh] '>
-          <div className='relative'>     
-            <div className="flex items-center absolute justify-center layered-text-container text-[100px] max-lg:text-[76px] max-sm:text-[60px] font-black font-poppins">
-              <LayeredText text="HELLO!" />
-              <LayeredText text="I'M FAREL" />
-            </div>
-            <div className='w-full absolute top-[230px] max-lg:top-[180px] max-sm:top-[135px] flex justify-center'>
-              <img ref={test2} src="/images/selfphoto5.png" className='z-[2] w-[400px] max-lg:w-[350px] max-sm:w-[300px]' />
-              <div className='w-[200px] max-sm:top-[250px] text-center absolute top-[290px] flex justify-center z-[3]'>
-                <p className='text-white font-comfortaa'>a game developer & self-taught front end web developer.</p>
-              </div>
+    <section ref={test} className='w-full flex flex-col items-center h-[800px] max-lg:h-[700px] max-sm:h-[650px]'>
+      <div className='w-full absolute'>
+        <WaveComp1 forwardedRef={wave1} />
+        <WaveComp2 forwardedRef={wave2} />
+        <WaveComp3 forwardedRef={wave3} />
+      </div>
+      <div className='mt-[15vh] max-sm:mt-[20vh] '>
+        <div className='relative'>     
+          <div className="flex items-center absolute justify-center layered-text-container text-[100px] max-lg:text-[76px] max-sm:text-[60px] font-black font-poppins">
+            <LayeredText text="HELLO!" />
+            <LayeredText text="I'M FAREL" />
+          </div>
+          <div className='w-full absolute top-[230px] max-lg:top-[180px] max-sm:top-[135px] flex justify-center'>
+            <img ref={test2} src="/images/selfphoto5.png" className='z-[2] w-[400px] max-lg:w-[350px] max-sm:w-[300px]' />
+            <div className='w-[200px] max-sm:top-[250px] text-center absolute top-[290px] flex justify-center z-[3]'>
+              <p className='text-white font-comfortaa'>a game developer & self-taught front end web developer.</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
   )
 }
 
