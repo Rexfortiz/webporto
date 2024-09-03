@@ -4,6 +4,7 @@ import { Test2 } from "./components/Test2"
 import { Suspense, useEffect, useState } from "react"
 import Loading from "./components/Loading"
 import MobileApp from "./Mobile/MobileApp"
+import { FloatingNav } from "./components/ui/floating-navbar"
 
 const App = () => {
 
@@ -30,14 +31,37 @@ const App = () => {
     };
   }, [windowSize]);
 
+  const navItems = [
+    {
+      name: "Tech stack",
+      link: "#tech-mobile",
+      
+    },
+    {
+      name: "Web",
+      link: "#webporto-mobile",
+      
+    },
+    {
+      name: "Game",
+      link: "#gameporto-mobile",
+    },
+    {
+      name: "About",
+      link: "#about-mobile",
+
+    },
+  ];
+
   return (
     <>
       {
         isMobile ?
         <Suspense fallback={<Loading />} >
-          
+          <FloatingNav navItems={navItems}/>
           <MobileApp />
         </Suspense>
+        
         :
         <Canvas
           shadows

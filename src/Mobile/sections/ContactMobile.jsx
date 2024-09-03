@@ -151,13 +151,14 @@ const ContactMobile= () => {
 
   return (
     <section 
-      className='w-full flex flex-col gap-5 items-center py-10 border' 
+      className='w-full flex flex-col gap-5 items-center py-10' 
       ref={sectionRef}
+      id='about-mobile'
     >
       <div className='flex w-full'>
         <div className='flex flex-col w-full gap-8'>
           <h1 className='text-white font-sans font-black text-[100px] max-lg:text-[80px] max-sm:text-[50px]'>More About Me</h1>
-          <p className='text-white font-comfortaa text-[20px] max-md:text-[16px]'>
+          <p className='text-white font-comfortaa text-[20px] max-md:text-[16px] max-sm:text-[14px]'>
             I have been deeply passionate about gaming, 
             playing a wide variety of games since I was 2 years old. 
             During my college years, I learned how to create and design games 
@@ -183,7 +184,7 @@ const ContactMobile= () => {
             ))}
             <div className='bg-white px-5 h-[60px] max-md:h-[45px]  flex gap-3 justify-center items-center rounded-full'>
               <img src="/icons/email.svg" width={22} />
-              <p className='font-comfortaa font-bold max-md:text-[13px]'>thomasfarel9422@gmail.com</p>
+              <p className='font-comfortaa font-bold max-md:text-[13px] max-sm:text-[11px]'>thomasfarel9422@gmail.com</p>
             </div>
           </div>
           <div className='flex flex-col justify-center items-center'>
@@ -202,9 +203,9 @@ const ContactMobile= () => {
           </div>
         </div>
       </div>
-      <div className='h-[620px] max-xl:h-[320px] w-full flex flex-col justify-center items-center'>
+      <div id='contact-mobile' className='w-full flex flex-col justify-center items-center h-full'>
         <h1 className='my-5 text-white font-sans font-bold max-md:text-[80px] max-sm:text-[65px] text-[100px] gradient-about'>Contact Me!</h1>
-        <form ref={form} onSubmit={sendEmail} className='flex flex-col gap-5 w-[512px] max-sm:w-full font-comfortaa mb-80'>
+        <form ref={form} onSubmit={sendEmail} className='flex flex-col gap-5 w-[512px] max-sm:w-full font-comfortaa mb-[5vh]'>
           <input type="text" name="user_name" placeholder='Your Name' 
             className='h-[52px] max-sm:h-[50px] max-sm:text-[14px] pl-4 rounded-xl backdrop-blur-[2px] backdrop-filter gradient-input text-white' 
           />

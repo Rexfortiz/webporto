@@ -4,11 +4,10 @@ import TechStackMobile from './sections/TechStackMobile'
 import WebPorto from './sections/WebPorto'
 import GamePorto from './sections/GamePorto'
 import ContactMobile from './sections/ContactMobile'
+import Reminder from './sections/Reminder'
 
 
 const MobileApp = () => {
-
-
 
   return (
     <>
@@ -16,8 +15,9 @@ const MobileApp = () => {
           <div className='gradient-mobile'/>
       </div>
 
-      <div className='app mr-4'>
+      <div className='app overflow-hidden'>
           <Hero />
+          <Reminder />
           <TechStackMobile />
           <WebPorto />
           <GamePorto />

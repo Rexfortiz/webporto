@@ -2,7 +2,7 @@ import React from 'react'
 
 const LayeredText = ({ text, classNameProps }) => {
   return (
-    <h1 className={`layered-text ${classNameProps}`} data-text={text}>{text}</h1>
+    <h1 className={`layered-text font-sans ${classNameProps}`} data-text={text}>{text}</h1>
   )
 }
 

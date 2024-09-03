@@ -38,3 +38,5 @@ BESOK TANGGAL 29/05
 <!-- [] render mobile mode ketika width lebih kecil dari sekian -->
 
 [] benerin gameporto content mobile biar kaya yg 3d
+[] benerin sizing button webporto
+[] font hello farel ga detect di hp

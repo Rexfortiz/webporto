@@ -199,20 +199,20 @@ export const webPortoContent = [
     ] 
   },
   {
-    name: "Web Portofolio",
+    name: "3D Web Portofolio",
     img: "/web/webporto.png",
     imgMobile: "/web/porto-mobile.png",
     url: "https://thomasfarel.com",
     github: "https://github.com/Rexfortiz/webporto",
-    desc:"This Website",
+    desc:"This Website. created on threeJS, using free 3D model online. did the lighting and animation using Gsap",
     skill: [
       {
-        img: "/icons/next-js.svg",
-        text: "NextJs"
+        img: "/icons/react.png",
+        text: "ReactJs"
       },
       {
         img: "/icons/typescript.png",
-        text: "Typescript"
+        text: "JavaScript"
       },
       {
         img: "/icons/tailwindcss.svg",
@@ -220,7 +220,7 @@ export const webPortoContent = [
       },
       {
         img: "/icons/mongodb.svg",
-        text: "MongoDB"
+        text: "ThreeJs"
       },
     ] 
   },

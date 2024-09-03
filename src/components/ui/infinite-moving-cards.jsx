@@ -83,9 +83,9 @@ export const InfiniteMovingCards = ({
         )}
       >
         {techStack.map((item) => (
-          <div key={item.name} className='gradient-btn-mobile w-36 h-36  flex flex-col gap-3 max-sm:rounded-lg justify-center items-center rounded-lg'>
-            <img src={item.img} className='w-[46px] max-sm:w-[38px]' />
-            <p className='text-white font-comfortaa text-[14px]'>{item.name}</p>
+          <div key={item.name} className='gradient-btn-mobile w-36 h-36 max-lg:w-32 max-lg:h-32 max-md:w-28 max-md:h-28 max-sm:w-20 max-sm:h-20 flex flex-col gap-3 max-sm:rounded-xl justify-center items-center rounded-lg'>
+            <img src={item.img} className='w-[46px] max-md:w-[34px] max-sm:w-[28px]' />
+            <p className='text-white font-comfortaa text-[14px] max-md:text-[13px] max-sm:text-[12px]'>{item.name}</p>
           </div>
         ))}
       </ul>

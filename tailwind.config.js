@@ -30,7 +30,7 @@ export default {
         zinc: '#101010',
         base: {
           DEFAULT: '#0D0D0D',
-          2: '#31363F',
+          2: '#fcfcfc',
         },
         base_light:{
           DEFAULT: '#76ABAE',
