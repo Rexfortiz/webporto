@@ -69,7 +69,7 @@ const Hero = () => {
             <LayeredText text="I'M FAREL" />
           </div>
           <div className='w-full absolute top-[230px] max-lg:top-[180px] max-sm:top-[135px] flex justify-center'>
-            <img ref={test2} src="/images/selfphoto5.png" className='z-[2] w-[400px] max-lg:w-[350px] max-sm:w-[300px]' />
+            <img loading='lazy' ref={test2} src="/images/selfphoto5.png" className='z-[2] w-[400px] max-lg:w-[350px] max-sm:w-[300px]' />
             <div className='w-[200px] max-sm:top-[250px] text-center absolute top-[290px] flex justify-center z-[3]'>
               <p className='text-white font-comfortaa'>a game developer & self-taught front end web developer.</p>
             </div>

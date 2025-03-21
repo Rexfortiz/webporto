@@ -1,11 +1,12 @@
 /* eslint-disable */
 import React, {  useEffect, useRef } from 'react'; 
-import { webPortoContent } from '../../constants'
+import { webPortoContentMobile } from '../../constants'
 import Skill from '../../cards/Skill';
 
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ButtonMobile from '../mobileComponent/ui/ButtonMobile';
+import awsMobileSmall from '/web/aws-mobile-small.png'
 
 gsap.registerPlugin(ScrollTrigger) 
 
@@ -111,7 +112,7 @@ const WebPorto = () => {
       </div>
       <div className="h-full flex justify-center w-full">
         <div className="h-full px-8 max-sm:px-0 pt-20 flex flex-col items-center gap-8 w-full">
-          {webPortoContent.map((content, index) => {
+          {webPortoContentMobile.map((content, index) => {
             // Create refs for each WebPortoCard
             // eslint-disable-next-line react-hooks/rules-of-hooks
             const divRef = useRef(null);
@@ -123,7 +124,10 @@ const WebPorto = () => {
 
             return (
               <div ref={cardRef} key={index} className=' relative flex flex-col items-center w-full'>
-                <img ref={imgRef} src={content.imgMobile} className='w-[75%] max-lg:w-[85%] max-sm:w-full z-[1] rounded-2xl border-x-2 border-t-2 border-white'/>
+                {/* <div className=' bg-[url(/web/aws-mobile-small.png)]  bg-cover w-[75%] max-lg:w-[85%] max-sm:w-full h-96'></div> */}
+                <div ref={imgRef} className={`w-[75%] max-lg:w-[85%] max-sm:w-full z-[1] rounded-2xl border-x-2 border-t-2 border-white  bg-cover bg-center bg-[url(${content.imgMobileSmall})] h-96`}>
+                  {/* <img loading='lazy' src={content.imgMobile} className=' z-[1] rounded-2xl '/> */}
+                </div>
                 <div ref={divRef} className="backdrop-blur-[17.9px] mt-[-22px] z-[2] border-b-2 border-l-2 border-r-2 border-white backdrop-filter gradient w-[75%] max-lg:w-[85%] max-sm:w-full rounded-2xl rounded-t-none flex-shrink-0">
                   <div className='max-md:px-8 max-sm:px-5 px-16 py-9 h-full'>
                     <div className='flex flex-col h-full gap-16 max-md:gap-10 max-sm:gap-8 justify-between'>

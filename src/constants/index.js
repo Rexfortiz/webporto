@@ -226,6 +226,195 @@ export const webPortoContent = [
   },
 ]
 
+export const webPortoContentMobile = [
+  {
+    name: "AWS clone",
+    img: "/web/aws.png",
+    imgMobile: "/web/aws-mobile.png",
+    imgMobileSmall: "/web/aws-mobile-small.png",
+    url: "https://aws-clone.thomasfarel.com",
+    github: "https://github.com/Rexfortiz/aws-clone",
+    desc:"This is the first project that i made.  I developed a comprehensive clone of the AWS (Amazon Web Services) website. The primary objective was to replicate the design, functionality, and user experience of the original AWS website.",
+    skill: [
+      {
+        img: "/icons/react.png",
+        text: "ReactJS"
+      },
+      {
+        img: "/icons/javascript.png",
+        text: "Javascript"
+      },
+      {
+        img: "/icons/tailwindcss.svg",
+        text: "TailwindCSS"
+      }
+    ]
+  },
+  {
+    name: "Nike Clone",
+    img: "/web/nike.png",
+    imgMobile: "/web/nike-mobile.png",
+    imgMobileSmall: "/web/nike-mobile-small.png",
+    url: "https://nike-clone.thomasfarel.com",
+    github: "https://github.com/Rexfortiz/nike-clone",
+    desc:"I created this website to improve my Tailwind CSS skills by following a tutorial on YouTube",
+    skill: [
+      {
+        img: "/icons/react.png",
+        text: "React"
+      },
+      {
+        img: "/icons/typescript.png",
+        text: "Typescript"
+      },
+      {
+        img: "/icons/tailwindcss.svg",
+        text: "TailwindCSS"
+      },
+    ]
+  },
+  {
+    name: "Promptify",
+    img: "/web/promptify.png",
+    imgMobile: "/web/promptify-mobile.png",
+    imgMobileSmall: "/web/promptify-mobile-small.png",
+    url: "https://promptify-proj-aa1n25cwn-thomas-farels-projects-2e07d47c.vercel.app",
+    github: "https://github.com/Rexfortiz/promptify-proj",
+    desc:"Promptify is a web application for sharing AI prompts. I created this by following a tutorial on YouTube as I learned to develop backend functionality.",
+    skill: [
+      {
+        img: "/icons/next-js.svg",
+        text: "NextJs"
+      },
+      {
+        img: "/icons/typescript.png",
+        text: "Typescript"
+      },
+      {
+        img: "/icons/tailwindcss.svg",
+        text: "TailwindCSS"
+      },
+      {
+        img: "/icons/mongodb.svg",
+        text: "MongoDB"
+      },
+    ] 
+  },
+  {
+    name: "Bumi Commerce",
+    img: "/web/lensi.png",
+    imgMobile: "/web/bumishop-mobile.png",
+    imgMobileSmall: "/web/bumishop-mobile-small.png",
+    url: "https://www.youtube.com/watch?v=ll9IeayxCx4",
+    github: "https://github.com/Rexfortiz/e-commerce",
+    desc: "I created this full-stack eCommerce website using NextJS, Payload CMS, and Stripe by following a tutorial on YouTube and customizing it to make my own version.",
+    skill: [
+      {
+        img: "/icons/next-js.svg",
+        text: "NextJs"
+      },
+      {
+        img: "/icons/typescript.png",
+        text: "Typescript"
+      },
+      {
+        img: "/icons/tailwindcss.svg",
+        text: "TailwindCSS"
+      },
+      {
+        img: "/icons/mongodb.svg",
+        text: "MongoDB"
+      },
+      {
+        img: "/icons/payload.png",
+        text: "Payload"
+      },
+    ] 
+  },
+  {
+    name: "Lensi",
+    img: "/web/lensi.png",
+    imgMobile: "/web/lensi-mobile.png",
+    imgMobileSmall: "/web/lensi-mobile-small.png",
+    url: "https://lensi.vercel.app",
+    github: "https://github.com/Rexfortiz/Lensi",
+    desc:"This is a fully-featured social web application with a simple design, created using NextJS 14 and MongoDB. Users can post, like, comment, reply, follow each other, and receive notifications of these activities.",
+    skill: [
+      {
+        img: "/icons/next-js.svg",
+        text: "NextJs"
+      },
+      {
+        img: "/icons/typescript.png",
+        text: "Typescript"
+      },
+      {
+        img: "/icons/tailwindcss.svg",
+        text: "TailwindCSS"
+      },
+      {
+        img: "/icons/mongodb.svg",
+        text: "MongoDB"
+      },
+
+    ] 
+  },
+  {
+    name: "3D Web Portofolio",
+    img: "/web/webporto.png",
+    imgMobile: "/web/porto-mobile.png",
+    imgMobileSmall: "/web/porto-mobile-small.png",
+    url: "https://thomasfarel.com",
+    github: "unavailable",
+    desc:"This Website. created on threeJS, using free 3D model online. did the lighting and animation using Gsap",
+    skill: [
+      {
+        img: "/icons/react.png",
+        text: "ReactJs"
+      },
+      {
+        img: "/icons/typescript.png",
+        text: "JavaScript"
+      },
+      {
+        img: "/icons/tailwindcss.svg",
+        text: "TailwindCSS"
+      },
+      {
+        img: "/icons/javascript.png",
+        text: "ThreeJs"
+      },
+    ] 
+  },
+  {
+    name: "Rimba Workshop Admin Web App",
+    img: "/web/rimba.png",
+    imgMobile: "/web/rimba.png",
+    imgMobileSmall: "/web/rimba-mobile-small.png",
+    url: "https://workshop-web-admin.vercel.app/",
+    github: "unavailable",
+    desc:"Admin Panel for a Motorcycle Spare Parts Store, built using Next.js 14 and MongoDB, with WebSocket integration to monitor online admin users in real-time by the owner user. Features include full CRUD functionality for managing inventory (sales and purchases), suppliers, admin users, and receipts, along with a secure custom authentication system using jwt.",
+    skill: [
+      {
+        img: "/icons/react.png",
+        text: "NextJs"
+      },
+      {
+        img: "/icons/typescript.png",
+        text: "Typescript"
+      },
+      {
+        img: "/icons/tailwindcss.svg",
+        text: "TailwindCSS"
+      },
+      {
+        img: "/icons/mongodb.svg",
+        text: "Mongodb"
+      },
+    ] 
+  },
+]
+
 export const gamePorto = [
   {
     name: "Salvia's Scroll Atelier",
