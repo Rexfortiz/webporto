@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, {  useEffect, useRef } from 'react'; 
+import React, { useState, useEffect, useRef } from 'react'; 
 import { webPortoContentMobile } from '../../constants'
 import Skill from '../../cards/Skill';
 
@@ -94,6 +94,8 @@ const WebPorto = () => {
     
   }, [gsap])
 
+
+
   return (
     <section ref={sectionRef} id='webporto-mobile' className='w-full flex flex-col gap-5  py-10'>
       <h1 ref={sectionRef2} className='text-white font-sans font-black text-[100px] max-lg:text-[80px] max-sm:text-[50px]'>Web Portofolio</h1>
@@ -121,12 +123,14 @@ const WebPorto = () => {
             divBottomRefs.current[index] = divRef;
             imgRefs.current[index] = imgRef;
             cardRefs.current[index] = cardRef;
+            const [Loaded, setLoaded] = useState(false)
+
+            console.log("IMAGE SMALL: "+content.imgMobileSmall)
 
             return (
               <div ref={cardRef} key={index} className=' relative flex flex-col items-center w-full'>
-                {/* <div className=' bg-[url(/web/aws-mobile-small.png)]  bg-cover w-[75%] max-lg:w-[85%] max-sm:w-full h-96'></div> */}
-                <div ref={imgRef} className={`w-[75%] max-lg:w-[85%] max-sm:w-full z-[1] rounded-2xl border-x-2 border-t-2 border-white  bg-cover bg-center bg-[url(${content.imgMobileSmall})] h-96`}>
-                  {/* <img loading='lazy' src={content.imgMobile} className=' z-[1] rounded-2xl '/> */}
+                <div ref={imgRef} style={{ backgroundImage: `url(${content.imgMobileSmall})` }} className={`w-[75%] max-lg:w-[85%] max-sm:w-full z-[1] rounded-2xl border-x-2 border-t-2 border-white  bg-cover  h-96 bg-center`}>
+                  <img onLoad={() => setLoaded(true)} loading='lazy' src={content.imgMobile} className={`${Loaded ? `opacity-100`: `opacity-0`}  transition-opacity duration-700 ease-in-out z-[1] rounded-2xl`}/>
                 </div>
                 <div ref={divRef} className="backdrop-blur-[17.9px] mt-[-22px] z-[2] border-b-2 border-l-2 border-r-2 border-white backdrop-filter gradient w-[75%] max-lg:w-[85%] max-sm:w-full rounded-2xl rounded-t-none flex-shrink-0">
                   <div className='max-md:px-8 max-sm:px-5 px-16 py-9 h-full'>
@@ -145,7 +149,6 @@ const WebPorto = () => {
                         <div className='flex gap-5'>
                           <ButtonMobile text={"Live Demo"} link={content.url} />
                           <ButtonMobile text={"Github"} link={content.github} />
-
                         </div>
                       </div>
                     </div>

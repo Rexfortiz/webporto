@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react'
+import React, { useState,useLayoutEffect, useRef } from 'react'
 import LayeredText from '../mobileComponent/LayeredText'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -15,6 +15,8 @@ const Hero = () => {
   const test = useRef()
   const test2 = useRef()
   const tl = useRef()
+
+  const [Loaded,setLoaded] = useState(false);
 
   
 
@@ -69,7 +71,9 @@ const Hero = () => {
             <LayeredText text="I'M FAREL" />
           </div>
           <div className='w-full absolute top-[230px] max-lg:top-[180px] max-sm:top-[135px] flex justify-center'>
-            <img loading='lazy' ref={test2} src="/images/selfphoto5.png" className='z-[2] w-[400px] max-lg:w-[350px] max-sm:w-[300px]' />
+            <div ref={test2} className={`${Loaded ? `` : `bg-[url(/images/selfphoto5-small.png)]`} opacity-100 z-[2] w-[400px] h-96 max-lg:w-[350px] max-sm:w-[300px] bg-center bg-cover`}>
+              <img onLoad={()=> setLoaded(true)} loading='lazy'  src="/images/selfphoto5.png" className={`${Loaded ? `opacity-100` : `opacity-0`} transition-opacity duration-700 z-[2] w-[400px] max-lg:w-[350px] max-sm:w-[300px]`} />
+            </div>
             <div className='w-[200px] max-sm:top-[250px] text-center absolute top-[290px] flex justify-center z-[3]'>
               <p className='text-white font-comfortaa'>a game developer & self-taught front end web developer.</p>
             </div>

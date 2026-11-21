@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import {  useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { gamePortoContent } from '../../constants'
 import Skill from '../../cards/Skill';
 import GradientButton from '../../buttons/GradientButton';
@@ -9,12 +9,12 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ButtonGameMobile from '../mobileComponent/ui/ButtonGameMobile';
 
-
 gsap.registerPlugin(ScrollTrigger) 
 
 const GamePorto = () => {
   const imgRefs = useRef([]);
   const divBottomRefs = useRef([]);
+  const [Loaded, setLoaded] = useState(false);
 
   const sectionRef = useRef()
 
@@ -113,7 +113,9 @@ const GamePorto = () => {
 
             return (
               <div key={index} className=' relative flex flex-col items-center w-full'>
-                <img ref={imgRef} src={content.imgMobile} className='w-[75%] max-lg:w-[85%] max-sm:w-full z-[1] rounded-2xl border-x-2 border-t-2 border-white'/>
+                <div ref={imgRef} style={{ backgroundImage: `url(${content.imgMobileSmall})` }} className={`w-[75%] max-lg:w-[85%] max-sm:w-full z-[1] rounded-2xl border-x-2 border-t-2 border-white  bg-cover  h-96 bg-center`}>
+                  <img onLoad={() => setLoaded(true)} loading='lazy' src={content.imgMobile} className={`${Loaded ? `opacity-100`: `opacity-0`}  transition-opacity duration-700 ease-in-out z-[1] rounded-2xl`}/>
+                </div>
                 <div ref={divRef} className="backdrop-blur-[17.9px] mt-[-22px] z-[2] border-b-2 border-l-2 border-r-2 border-white rounded-t-none backdrop-filter gradient w-[75%] max-lg:w-[85%] max-sm:w-full rounded-2xl flex-shrink-0">
                   <div className='max-md:px-8 max-sm:px-5 px-16 py-9 h-full'>
                     <div className='flex flex-col h-full gap-16 justify-between'>
