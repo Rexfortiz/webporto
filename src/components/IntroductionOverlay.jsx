@@ -2,7 +2,10 @@ import React from 'react'
 
 const IntroductionOverlay = ( props ) => {
   return (
-    <section 
+    // Exactly one screen, so the tech stack's dark shadow starts right below
+    // and sits behind this text. (ContentOverlay adds the height difference
+    // back above the web title, so later sections keep their 3D sync.)
+    <section
       className='h-[var(--screen-h)] flex flex-col justify-end items-center p-10'
       style={{
         opacity: props.opacity

@@ -3,6 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
 import { gamePortoContent, webPortoContent } from "../constants";
 import GameCardContent from "../cards/GameCardContent";
+import { CARD_SLOT_PX, GAME_CARDS_TOP } from "../constants/scroll";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -131,18 +132,21 @@ const GameOverlay = (props) => {
 
   
   return (
+    // Pinned to the 3D timeline: one slot per 0.5s of the game carousel, so each
+    // card sits level with its 3D card (see constants/scroll.js).
     <section
-      className={`h-[calc(var(--screen-h)*3.3)] relative flex flex-col justify-center items-start`}
+      className="absolute inset-x-0 flex flex-col items-start"
       style={{
+        top: GAME_CARDS_TOP,
         opacity: props.opacity,
       }}
     >
-      <div className="h-full w-1/2 flex justify-center">
-        <div className="h-full px-8 pt-52 flex flex-col items-center gap-5 w-full">
-          {gamePortoContent.map((content, index) => (
-            <GameCardContent ref={refs[index]} key={content.name} title={content.name} desc={content.desc} jobdesk={content.jobdesk} trailer={content.trailer} play={content.playUrl} />
-          ))}
-        </div>
+      <div className="w-1/2 pl-[120px] pr-8">
+        {gamePortoContent.map((content, index) => (
+          <div key={content.name} className="flex items-center justify-center" style={{ height: CARD_SLOT_PX }}>
+            <GameCardContent ref={refs[index]} title={content.name} desc={content.desc} jobdesk={content.jobdesk} trailer={content.trailer} play={content.playUrl} />
+          </div>
+        ))}
       </div>
     </section>
   );

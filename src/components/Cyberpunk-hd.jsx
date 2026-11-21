@@ -15,6 +15,7 @@ import Carousel from './CarouselWeb'
 import Rig from './Rig'
 import CarouselWeb from './CarouselWeb'
 import CarouselGame from './CarouselGame'
+import { offsetToSeconds } from '../constants/scroll'
 
 export function Cyberpunk(props) {
   const group = useRef()
@@ -49,7 +50,8 @@ export function Cyberpunk(props) {
   },[])
 
   useFrame(() => {
-    const progress = scroll.offset * tl.current.duration()
+    // Timeline time for this scroll position (see constants/scroll.js).
+    const progress = offsetToSeconds(scroll.offset)
     tl.current.seek(progress)
     console.log(progress)
 
@@ -76,26 +78,29 @@ export function Cyberpunk(props) {
         break;
     }
 
+    // Highlight the game card that faces the camera. The carousel turns one
+    // card at 7.5s, 8s ... 10s, so each card is in front for the 0.5s after
+    // its turn (Food Melody from when the camera arrives).
     switch(true){
-      case progress >= 6.5 && progress <= 7:
+      case progress >= 6.5 && progress <= 7.5:
         setSelectedGameIndex(5);
         break;
-      case progress >= 7 && progress <= 7.5:
+      case progress > 7.5 && progress <= 8:
         setSelectedGameIndex(4);
         break;
-      case progress >= 7.5 && progress <= 8:
+      case progress > 8 && progress <= 8.5:
         setSelectedGameIndex(3);
-        break;  
-      case progress >= 8 && progress <= 8.5:
+        break;
+      case progress > 8.5 && progress <= 9:
         setSelectedGameIndex(2);
-        break;    
-      case progress >= 8.5 && progress <= 9:
+        break;
+      case progress > 9 && progress <= 9.5:
         setSelectedGameIndex(1);
         break;
-      case progress >= 9 && progress <= 9.5:
+      case progress > 9.5 && progress <= 10:
         setSelectedGameIndex(0);
         break;
-      case progress >= 9.5 && progress <= 10:
+      case progress > 10 && progress <= 10.6:
         setSelectedGameIndex(6);
         break;
     }

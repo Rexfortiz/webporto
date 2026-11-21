@@ -4,9 +4,9 @@ import Skill from './Skill'
 
 const WebCardContent = ({ title, desc, skillList }) => {
   // Fixed width (what w-[80%] measured at the 2560px design) so text wraps
-  // the same on every screen shape and the cards stay in sync with the 3D.
+  // the same on every screen shape; capped to the column on narrow screens.
   return (
-    <div className="backdrop-blur-[17.9px] backdrop-filter gradient w-[972.8px] rounded-lg flex-shrink-0">
+    <div className="backdrop-blur-[17.9px] backdrop-filter gradient w-[972.8px] max-w-full rounded-lg flex-shrink-0">
       <div className='px-16 py-9 h-full'>
         <div className='flex flex-col h-full gap-12 justify-between'>
           <div className='flex flex-col gap-5'>

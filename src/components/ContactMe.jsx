@@ -19,7 +19,7 @@ const ContactMe = () => {
 
   return (
     <section 
-      className='mt-[800px] flex flex-col items-center px-[350px]'
+      className='flex flex-col items-center px-[350px]'
     >
       <div className='flex w-[80%] max-xl: h-[700px] py-14 gradient-about'>
         <div className='flex flex-col w-full gap-5 justify-center '>

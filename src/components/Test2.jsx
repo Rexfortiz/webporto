@@ -8,6 +8,7 @@ import { TextureLoader } from 'three';
 import gsap from 'gsap';
 import ContentOverlay from "./ContentOverlay"
 import IntroductionModel from "./IntroductionModel"
+import { SCROLL_PAGES } from "../constants/scroll"
 
 export const Test2 = () => {
 
@@ -34,7 +35,7 @@ export const Test2 = () => {
       <group position={[30,-190,50]} rotation={[0,-0.25,0]} ref={model}>
         <OrbitControls enableZoom={false} enablePan={false} enableRotate={false}  />
         
-        <ScrollControls pages={11.7} damping={0.2}>
+        <ScrollControls pages={SCROLL_PAGES} damping={0.2}>
           {/* <Overlay /> */}
           <IntroductionModel textIntro={textIntro} />
           

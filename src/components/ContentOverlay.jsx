@@ -8,6 +8,9 @@ import gsap from "gsap";
 import WebOverlay from "./WebOverlay";
 import GameOverlay from "./GameOverlay";
 import ContactMe from "./ContactMe";
+import {
+  CONTACT_TOP, DESIGN_HEIGHT, GAME_TITLE_TOP, HTML_ZOOM, WEB_TITLE_TOP, tunedOffset,
+} from "../constants/scroll";
 
 const Section = (props) => {
   return(
@@ -28,20 +31,13 @@ const Section = (props) => {
   )
 }
 
-// Viewport height this layout was designed and tuned at (2560x1280: a
-// 1920x1080 monitor at 75% browser zoom). All px values in the overlay
-// assume it. If things drift, set this to `innerHeight` from your console
-// at the zoom level where everything lines up.
-const DESIGN_HEIGHT = 1280;
-
 const ContentOverlay = () => {
 
-  // The 3D scene scales with the canvas height (fixed vertical FOV) and drei
-  // scrolls this HTML by `height * (pages - 1) * offset`. Scaling the HTML by
-  // the same height keeps every section at the same scroll offset as its 3D
-  // keyframe on any screen, like browser zoom did at 75%.
+  // The 3D scene scales with the canvas height (fixed vertical FOV), so the
+  // HTML is scaled by the height too. See constants/scroll.js for how this and
+  // SCROLL_PAGES keep each section in sync with its 3D keyframe.
   const { width, height } = useThree((state) => state.size);
-  const scale = height / DESIGN_HEIGHT;
+  const scale = (HTML_ZOOM * height) / DESIGN_HEIGHT;
 
   const scroll = useScroll();
   const tl = useScroll();
@@ -68,9 +64,9 @@ const ContentOverlay = () => {
   const [opacityLastSection, setOpacityLastSection] = useState(1)
 
   useFrame(() => {
-    setOpacityFirstSection(1 - scroll.range(0, 1 / 3));
-    setOpacitySecondSection(scroll.curve(1 / 7, 3/ 7));
-    setOpacityLastSection(scroll.range(2 / 3, 1 / 3))
+    setOpacityFirstSection(1 - scroll.range(0, tunedOffset(1 / 3)));
+    setOpacitySecondSection(scroll.curve(tunedOffset(1 / 7), tunedOffset(4 / 7) - tunedOffset(1 / 7)));
+    setOpacityLastSection(scroll.range(tunedOffset(2 / 3), tunedOffset(1) - tunedOffset(2 / 3)))
     // console.log(scroll.offset)
     // tl.current.seek(scroll.offset * tl.current.duration())
     
@@ -83,23 +79,27 @@ const ContentOverlay = () => {
         style={{
           // Lay out at design height; fill the real screen width once scaled.
           width: width / scale,
-          // Use instead of vh inside the overlay (vh would ignore the scale).
-          "--screen-h": `${DESIGN_HEIGHT}px`,
+          // One screen in design px. Use instead of vh (vh ignores the scale).
+          "--screen-h": `${DESIGN_HEIGHT / HTML_ZOOM}px`,
           transform: `scale(${scale})`,
           transformOrigin: "top left",
+          position: "relative",
         }}
       >
         <IntroductionOverlay opacity={opacityFirstSection} />
         <TechStack tl={tl} techRef={techRef} wrapperRef={wrapperRef} />
-        <div className="flex justify-center mt-[50px]">
+        {/* Everything below is pinned to the 3D timeline (constants/scroll.js). */}
+        <div className="absolute inset-x-0 flex justify-center" style={{ top: WEB_TITLE_TOP }}>
           <h1 className="text-white font-bold font-sans text-[140px]">Web Portofolio</h1>
         </div>
         <WebOverlay opacity={1} />
-        <div className={`flex justify-center mt-72 margin-sec`}>
+        <div className="absolute inset-x-0 flex justify-center" style={{ top: GAME_TITLE_TOP }}>
           <h1 className="text-white font-bold font-sans text-[140px]">Game Portofolio</h1>
         </div>
         <GameOverlay opacity={1} />
-        <ContactMe />
+        <div className="absolute inset-x-0" style={{ top: CONTACT_TOP }}>
+          <ContactMe />
+        </div>
       </div>
     </Scroll>
   )

@@ -3,6 +3,7 @@ import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { TextureLoader } from 'three';
 import { useScroll } from '@react-three/drei'
 import gsap from 'gsap';
+import { tunedOffset } from '../constants/scroll';
 
 const IntroductionModel = ({ scrollValue }) => {
   const texture = useLoader(TextureLoader, '/images/intro.png');
@@ -17,10 +18,10 @@ const IntroductionModel = ({ scrollValue }) => {
   const [modelOpacity, setModelOpacity] = useState(1)
 
   useFrame(() => {
-    if(scroll.offset > 0.21){
+    if(scroll.offset > tunedOffset(0.21)){
       setModelOpacity(0)
     }
-    else if(scroll.offset <= 0.21){
+    else {
       setModelOpacity(1)
     }
   },[])

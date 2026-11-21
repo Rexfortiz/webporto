@@ -3,6 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
 import { webPortoContent } from "../constants";
 import WebCardContent from "../cards/WebCardContent";
+import { CARD_SLOT_PX, WEB_CARDS_TOP } from "../constants/scroll";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -131,18 +132,21 @@ const WebOverlay = (props) => {
 
   
   return (
+    // Pinned to the 3D timeline: one slot per 0.5s of the web carousel, so each
+    // card sits level with its 3D card (see constants/scroll.js).
     <section
-      className={`relative flex flex-col justify-center items-end`}
+      className="absolute inset-x-0 flex flex-col items-end"
       style={{
+        top: WEB_CARDS_TOP,
         opacity: props.opacity,
       }}
     >
-      <div className="h-full w-1/2 flex justify-center">
-        <div className="h-full px-8 pt-20 flex flex-col items-center gap-5 w-full">
-          {webPortoContent.map((content, index) => (
-            <WebCardContent ref={refs[index]} key={content.name} title={content.name} desc={content.desc} skillList={content.skill} />
-          ))}
-        </div>
+      <div className="w-1/2 pl-8 pr-[120px]">
+        {webPortoContent.map((content, index) => (
+          <div key={content.name} className="flex items-center justify-center" style={{ height: CARD_SLOT_PX }}>
+            <WebCardContent ref={refs[index]} title={content.name} desc={content.desc} skillList={content.skill} />
+          </div>
+        ))}
       </div>
     </section>
   );
