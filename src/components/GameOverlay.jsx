@@ -132,7 +132,7 @@ const GameOverlay = (props) => {
   
   return (
     <section
-      className={`h-[330vh] relative flex flex-col justify-center items-start`}
+      className={`h-[calc(var(--screen-h)*3.3)] relative flex flex-col justify-center items-start`}
       style={{
         opacity: props.opacity,
       }}

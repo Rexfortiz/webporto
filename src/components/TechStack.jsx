@@ -31,7 +31,7 @@ const TechStack = ({  tl, techRef, wrapperRef }) => {
     >
       <div 
         className="bg-base max-2xl:shadow-section_lg max-2xl:shadow-base shadow-section
-        shadow-base w-screen h-full flex justify-center"
+        shadow-base w-full h-full flex justify-center"
       >
         <div className="dots-bg absolute left-0 bg-red-300" />
         <div className="mt-5 w-[992px] flex flex-col relative justify-center items-center h-[900px] ">

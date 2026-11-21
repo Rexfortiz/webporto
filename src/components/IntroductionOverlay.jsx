@@ -3,7 +3,7 @@ import React from 'react'
 const IntroductionOverlay = ( props ) => {
   return (
     <section 
-      className='h-screen flex flex-col justify-end items-center p-10'
+      className='h-[var(--screen-h)] flex flex-col justify-end items-center p-10'
       style={{
         opacity: props.opacity
       }}
