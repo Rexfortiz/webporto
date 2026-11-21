@@ -6,30 +6,31 @@ import Loading from "./components/Loading"
 import MobileApp from "./Mobile/MobileApp"
 import { FloatingNav } from "./components/ui/floating-navbar"
 
-const App = () => {
+// The 3D version scales its HTML with the window height (see ContentOverlay),
+// so it no longer needs a 1780px-wide screen. It needs: a mouse/trackpad (keeps
+// tablets on the lighter mobile site), a landscape window at least 16:10 so the
+// 3D carousel isn't pushed off the left edge, and enough height that the
+// scaled-down text stays readable.
+const DESKTOP_QUERY =
+  "(pointer: fine) and (min-width: 1280px) and (min-height: 680px) and (min-aspect-ratio: 8/5)";
 
-  const [ isMobile, setIsMobile ] = useState(null)
-  const [windowSize, setWindowSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight
-  });
-
-  const updateWindowSize = () => {
-    setWindowSize({
-      width: window.innerWidth,
-      height: window.innerHeight
-    });
-  };
+const useIsDesktop = () => {
+  // Read synchronously so phones never mount the heavy 3D scene first.
+  const [isDesktop, setIsDesktop] = useState(() => window.matchMedia(DESKTOP_QUERY).matches);
 
   useEffect(() => {
-    window.addEventListener("resize", updateWindowSize);
-    windowSize.width <= 1780 ? setIsMobile(true) : setIsMobile(false)
-    console.log(isMobile)
-    console.log(windowSize.width)
-    return () => {
-      window.removeEventListener("resize", updateWindowSize);
-    };
-  }, [windowSize]);
+    const query = window.matchMedia(DESKTOP_QUERY);
+    const onChange = () => setIsDesktop(query.matches);
+    query.addEventListener("change", onChange);
+    return () => query.removeEventListener("change", onChange);
+  }, []);
+
+  return isDesktop;
+};
+
+const App = () => {
+
+  const isMobile = !useIsDesktop()
 
   const navItems = [
     {

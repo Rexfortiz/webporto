@@ -92,11 +92,11 @@ const ContentOverlay = () => {
         <IntroductionOverlay opacity={opacityFirstSection} />
         <TechStack tl={tl} techRef={techRef} wrapperRef={wrapperRef} />
         <div className="flex justify-center mt-[50px]">
-          <h1 className="text-white font-bold font-sans text-[140px] max-2xl:text-[120px]">Web Portofolio</h1>
+          <h1 className="text-white font-bold font-sans text-[140px]">Web Portofolio</h1>
         </div>
         <WebOverlay opacity={1} />
-        <div className={`flex justify-center mt-72 max-2xl:mt-[180px] margin-sec`}>
-          <h1 className="text-white font-bold font-sans text-[140px] max-xl:text-[100px]">Game Portofolio</h1>
+        <div className={`flex justify-center mt-72 margin-sec`}>
+          <h1 className="text-white font-bold font-sans text-[140px]">Game Portofolio</h1>
         </div>
         <GameOverlay opacity={1} />
         <ContactMe />

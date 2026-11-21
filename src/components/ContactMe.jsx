@@ -19,7 +19,7 @@ const ContactMe = () => {
 
   return (
     <section 
-      className='mt-[800px] flex flex-col items-center max-2xl:px-[200px] px-[350px]'
+      className='mt-[800px] flex flex-col items-center px-[350px]'
     >
       <div className='flex w-[80%] max-xl: h-[700px] py-14 gradient-about'>
         <div className='flex flex-col w-full gap-5 justify-center '>
@@ -58,7 +58,7 @@ const ContactMe = () => {
           <img src='/images/MoreAboutMe.png' className='h-full' />
         </div>
       </div>
-      <div className='h-[920px] max-xl:h-[820px] w-full flex flex-col justify-center items-center'>
+      <div className='h-[920px] w-full flex flex-col justify-center items-center'>
         <h1 className='my-5 text-white font-sans font-bold text-[100px] gradient-about'>Contact Me!</h1>
         <form ref={formRef} onSubmit={onSubmit} className='flex flex-col gap-5 w-[512px] font-comfortaa'>
           {/* Honeypot: hidden from people, bots fill it in */}
