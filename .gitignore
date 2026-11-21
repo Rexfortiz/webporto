@@ -25,3 +25,7 @@ dist-ssr
 {
     "eslint.enable": false
 }
+# Env files (keep .env.example)
+.env
+.env.*
+!.env.example

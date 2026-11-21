@@ -1,6 +1,6 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
+import React, { useEffect, useRef } from 'react';
 import { SocialMedia } from '../../constants';
+import { CONTACT_LIMITS, submitLabel, useContactForm } from '../../hooks/use-contact-form';
 
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 
 const ContactMobile= () => {
-  const form = useRef();
+  const { formRef, status, error, onSubmit } = useContactForm();
   const buttonRefs = useRef([]);
   const img1Ref = useRef()
   const img2Ref = useRef()
@@ -19,42 +19,6 @@ const ContactMobile= () => {
   const img5Ref = useRef()
   const img6Ref = useRef()
   const sectionRef = useRef()
-
-  const [isLoading, setIsLoading] = useState('nothing')
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    try {
-      setIsLoading('sending')
-      emailjs
-        .sendForm('service_o6bg50n', 'template_lpbhxg7', form.current, {
-          publicKey: 'J77rfH4sF0FrNN1tz',
-        })
-        .then(
-          () => {
-            console.log('SUCCESS!');
-          },
-          (error) => {
-            console.log('FAILED...', error.text);
-          },
-        );
-      
-    } catch (error) {
-      throw new Error(`Failed to send: ${error.message}`)
-    }
-    finally{
-      setTimeout(() => {
-        setIsLoading('sent');
-      }, 1500);
-      setTimeout(() => {
-        setIsLoading('refreshing');
-      }, 2000);
-      setTimeout(() => {
-        setIsLoading('nothing');
-      }, 3000);
-    }
-  };
 
   const handleMouseEnter = (index) => {
     gsap.to(buttonRefs.current[index], { y: 10, duration: 0.15 });
@@ -170,7 +134,7 @@ const ContactMobile= () => {
           </p>
           <div className='flex gap-4 max-md:gap-2'>
             {SocialMedia.map((content,index) => (
-              <a key={content.name} href={content.url} target='_blank'>
+              <a key={content.name} href={content.url} target='_blank' rel='noopener noreferrer'>
                 <button  
                   key={index}
                   ref={(el) => (buttonRefs.current[index] = el)}
@@ -205,18 +169,26 @@ const ContactMobile= () => {
       </div>
       <div id='contact-mobile' className='w-full flex flex-col justify-center items-center h-full'>
         <h1 className='my-5 text-white font-sans font-bold max-md:text-[80px] max-sm:text-[65px] text-[100px] gradient-about'>Contact Me!</h1>
-        <form ref={form} onSubmit={sendEmail} className='flex flex-col gap-5 w-[512px] max-sm:w-full font-comfortaa mb-[5vh]'>
-          <input type="text" name="user_name" placeholder='Your Name' 
-            className='h-[52px] max-sm:h-[50px] max-sm:text-[14px] pl-4 rounded-xl backdrop-blur-[2px] backdrop-filter gradient-input text-white' 
+        <form ref={formRef} onSubmit={onSubmit} className='flex flex-col gap-5 w-[512px] max-sm:w-full font-comfortaa mb-[5vh]'>
+          {/* Honeypot: hidden from people, bots fill it in */}
+          <input type="text" name="bot-field" tabIndex={-1} autoComplete="off" aria-hidden="true"
+            className='absolute -left-[9999px] h-0 w-0 opacity-0'
           />
-          <input type="email" name="user_email" placeholder='your_email@email.com' 
+          <input type="text" name="user_name" placeholder='Your Name' required
+            maxLength={CONTACT_LIMITS.name} autoComplete="name"
             className='h-[52px] max-sm:h-[50px] max-sm:text-[14px] pl-4 rounded-xl backdrop-blur-[2px] backdrop-filter gradient-input text-white'
           />
-          <textarea name="message" placeholder='Write your message here!' 
+          <input type="email" name="user_email" placeholder='your_email@email.com' required
+            maxLength={CONTACT_LIMITS.email} autoComplete="email"
+            className='h-[52px] max-sm:h-[50px] max-sm:text-[14px] pl-4 rounded-xl backdrop-blur-[2px] backdrop-filter gradient-input text-white'
+          />
+          <textarea name="message" placeholder='Write your message here!' required
+            maxLength={CONTACT_LIMITS.message}
             className='h-[152px] max-sm:h-[140px] max-sm:text-[14px] resize-none pl-4 pt-4 rounded-xl backdrop-blur-[2px] backdrop-filter gradient-input text-white'
           />
-          <input type="submit" disabled={isLoading !== "nothing"}
-            value={isLoading == 'nothing' && "Send" || isLoading == 'sending' && "Sending..." || isLoading == 'sent' && "Sent" || isLoading == 'refreshing' && "Sent"}
+          {error && <p role="alert" className='text-red-400 text-sm'>{error}</p>}
+          <input type="submit" disabled={status === 'sending' || status === 'sent'}
+            value={submitLabel(status)}
             className='h-[72px] max-sm:h-[60px] cursor-pointer bg-black text-white gradient-input rounded-xl gradient-btn disabled:cursor-default backdrop-blur-[4px] text-[20px] backdrop-filter'
           />
         </form>
