@@ -9,7 +9,8 @@ import WebOverlay from "./WebOverlay";
 import GameOverlay from "./GameOverlay";
 import ContactMe from "./ContactMe";
 import {
-  CONTACT_TOP, DESIGN_HEIGHT, GAME_TITLE_TOP, HTML_ZOOM, WEB_TITLE_TOP, tunedOffset,
+  CONTACT_SCALE, CONTACT_TOP, DESIGN_HEIGHT, GAME_CARD_WINDOWS, GAME_TITLE_TOP, HTML_ZOOM, WEB_CARD_WINDOWS,
+  WEB_TITLE_TOP, cardAt, offsetToSeconds, offsetToY, tunedOffset,
 } from "../constants/scroll";
 
 const Section = (props) => {
@@ -63,6 +64,22 @@ const ContentOverlay = () => {
   const [opacitySecondSection, setOpacitySecondSection] = useState(1)
   const [opacityLastSection, setOpacityLastSection] = useState(1)
 
+  // Cards pinned to their 3D cards: a one-screen layer that cancels out the
+  // scroll (drei moves this HTML up by the scrolled amount), plus which web and
+  // game card faces the camera right now.
+  const pinnedRef = useRef(null);
+  const [activeWeb, setActiveWeb] = useState(-1);
+  const [activeGame, setActiveGame] = useState(-1);
+
+  useFrame(() => {
+    if (pinnedRef.current) {
+      pinnedRef.current.style.transform = `translate3d(0px, ${offsetToY(scroll.offset)}px, 0px)`;
+    }
+    const seconds = offsetToSeconds(scroll.offset);
+    setActiveWeb(cardAt(WEB_CARD_WINDOWS, seconds));
+    setActiveGame(cardAt(GAME_CARD_WINDOWS, seconds));
+  });
+
   useFrame(() => {
     setOpacityFirstSection(1 - scroll.range(0, tunedOffset(1 / 3)));
     setOpacitySecondSection(scroll.curve(tunedOffset(1 / 7), tunedOffset(4 / 7) - tunedOffset(1 / 7)));
@@ -88,17 +105,22 @@ const ContentOverlay = () => {
       >
         <IntroductionOverlay opacity={opacityFirstSection} />
         <TechStack tl={tl} techRef={techRef} wrapperRef={wrapperRef} />
-        {/* Everything below is pinned to the 3D timeline (constants/scroll.js). */}
+        {/* Everything below is placed by the 3D timeline (constants/scroll.js). */}
         <div className="absolute inset-x-0 flex justify-center" style={{ top: WEB_TITLE_TOP }}>
           <h1 className="text-white font-bold font-sans text-[140px]">Web Portofolio</h1>
         </div>
-        <WebOverlay opacity={1} />
         <div className="absolute inset-x-0 flex justify-center" style={{ top: GAME_TITLE_TOP }}>
           <h1 className="text-white font-bold font-sans text-[140px]">Game Portofolio</h1>
         </div>
-        <GameOverlay opacity={1} />
-        <div className="absolute inset-x-0" style={{ top: CONTACT_TOP }}>
+        <div
+          className="absolute inset-x-0"
+          style={{ top: CONTACT_TOP, transform: `scale(${CONTACT_SCALE})`, transformOrigin: "top center" }}
+        >
           <ContactMe />
+        </div>
+        <div ref={pinnedRef} className="absolute inset-x-0 top-0 h-[var(--screen-h)] pointer-events-none">
+          <WebOverlay opacity={1} active={activeWeb} />
+          <GameOverlay opacity={1} active={activeGame} />
         </div>
       </div>
     </Scroll>

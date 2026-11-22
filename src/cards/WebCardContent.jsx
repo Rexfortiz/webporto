@@ -2,29 +2,26 @@ import React from 'react'
 import GradientButton from '../buttons/GradientButton'
 import Skill from './Skill'
 
+// Inside of a web portfolio card (desktop overlay). The glass card around it,
+// its fixed width and its fade come from PinnedCard.
 const WebCardContent = ({ title, desc, skillList }) => {
-  // Fixed width (what w-[80%] measured at the 2560px design) so text wraps
-  // the same on every screen shape; capped to the column on narrow screens.
   return (
-    <div className="backdrop-blur-[17.9px] backdrop-filter gradient w-[972.8px] max-w-full rounded-lg flex-shrink-0">
-      <div className='px-16 py-9 h-full'>
-        <div className='flex flex-col h-full gap-12 justify-between'>
-          <div className='flex flex-col gap-5'>
-            <p className='font-sans font-bold text-white text-[36px]'>{title}</p>
-            <p className='font-comfortaa text-white text-[16px]'>{desc}</p>
+    <div className='px-16 py-11 h-full'>
+      <div className='flex flex-col h-full gap-12 justify-between'>
+        <div className='flex flex-col gap-6'>
+          <p className='font-sans font-bold text-white text-[48px] leading-tight'>{title}</p>
+          <p className='font-comfortaa text-white text-[22px] leading-relaxed'>{desc}</p>
+        </div>
+
+        <div className='flex flex-col gap-6'>
+          <div className='flex gap-7 p-2'>
+            {skillList.map((skill, index) => (
+              <Skill key={index} text={skill.text} img={skill.img} responsive={false} large />
+            ))}
           </div>
-
-          <div className='flex flex-col gap-5'>
-            <div className='flex gap-5 p-2'>
-              {skillList.map((skill, index) => (
-                <Skill key={index} text={skill.text} img={skill.img} responsive={false} />
-              ))}
-            </div>
-            <div className='flex gap-5'>
-              <GradientButton text={"Live Demo"} />
-              <GradientButton text={"Github"} />
-            </div>
-
+          <div className='flex gap-5'>
+            <GradientButton text={"Live Demo"} large />
+            <GradientButton text={"Github"} large />
           </div>
         </div>
       </div>

@@ -1,28 +1,25 @@
 import React from 'react'
 import GradientButton from '../buttons/GradientButton'
-import Skill from './Skill'
 
+// Inside of a game portfolio card (desktop overlay). The glass card around it,
+// its fixed width and its fade come from PinnedCard.
 const GameCardContent = ({ title, desc, jobdesk, trailer, play, }) => {
-  // Fixed width (what w-[80%] measured at the 2560px design) so text wraps
-  // the same on every screen shape; capped to the column on narrow screens.
   return (
-    <div className="backdrop-blur-[17.9px] backdrop-filter gradient w-[972.8px] max-w-full rounded-lg flex-shrink-0">
-      <div className='px-16 py-9 h-full'>
-        <div className='flex flex-col h-full gap-5 justify-between'>
-          <div className='flex flex-col gap-5 font-medium'>
-            <p className='font-sans font-bold text-white text-[36px]'>{title}</p>
-            <p className='font-comfortaa text-white text-[16px]'>{desc}</p>
-          </div>
+    <div className='px-16 py-11 h-full'>
+      <div className='flex flex-col h-full gap-7 justify-between'>
+        <div className='flex flex-col gap-6 font-medium'>
+          <p className='font-sans font-bold text-white text-[48px] leading-tight'>{title}</p>
+          <p className='font-comfortaa text-white text-[22px] leading-relaxed'>{desc}</p>
+        </div>
 
-          <div className='flex flex-col gap-5'>
-            <div className='flex flex-col gap-2 font-medium'>
-              <p className='text-white text-[20px]'>What i did:</p>
-              <p className='text-white text-[18px]'>{jobdesk}</p>
-            </div>
-            <div className='flex gap-5'>
-              <GradientButton text={"Trailer"} link={trailer} />
-              <GradientButton text={"Play"} link={play} />
-            </div>
+        <div className='flex flex-col gap-7'>
+          <div className='flex flex-col gap-2 font-medium'>
+            <p className='text-white text-[27px]'>What i did:</p>
+            <p className='text-white text-[24px]'>{jobdesk}</p>
+          </div>
+          <div className='flex gap-5'>
+            <GradientButton text={"Trailer"} link={trailer} large />
+            <GradientButton text={"Play"} link={play} large />
           </div>
         </div>
       </div>

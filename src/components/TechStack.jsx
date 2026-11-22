@@ -5,6 +5,7 @@ import { techStack } from '../constants'
 import TechCard from "../cards/TechCard"
 import { useFrame } from "@react-three/fiber"
 import { useGSAP } from "@gsap/react"
+import { TECH_STACK_HEIGHT, TECH_STACK_SCALE } from "../constants/scroll"
 
 const TechStack = ({  tl, techRef, wrapperRef }) => {
 
@@ -26,15 +27,21 @@ const TechStack = ({  tl, techRef, wrapperRef }) => {
   })
 
   return (
-    <section 
-      className='z-0 h-[920px] w-full flex flex-col justify-center items-center'
+    // Drawn TECH_STACK_SCALE times bigger; the 3D pauses behind the taller band
+    // so nothing after it shifts (see constants/scroll.js).
+    <section
+      className='z-0 w-full flex flex-col justify-center items-center'
+      style={{ height: TECH_STACK_HEIGHT }}
     >
-      <div 
+      <div
         className="bg-base shadow-section
         shadow-base w-full h-full flex justify-center"
       >
         <div className="dots-bg absolute left-0 bg-red-300" />
-        <div className="mt-5 w-[992px] flex flex-col relative justify-center items-center h-[900px] ">
+        <div
+          className="mt-5 w-[992px] flex flex-col relative justify-center items-center h-[900px] "
+          style={{ transform: `scale(${TECH_STACK_SCALE})`, transformOrigin: "top center" }}
+        >
           <img src="/images/selfphoto5.png" className="absolute top-32 z-[2] w-[700px] left-36" />
           <h2 className="tech-text flex z-[1] relative top-[-210px] justify-center items-center text-[160px]  font-black">TECH STACK</h2>
           <h2 className="tech-text top-[-450px] relative z-[3] justify-center items-center text-[160px] text-transparent font-black">TECH STACK</h2>

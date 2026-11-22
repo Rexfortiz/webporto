@@ -3,7 +3,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
 import { webPortoContent } from "../constants";
 import WebCardContent from "../cards/WebCardContent";
-import { CARD_SLOT_PX, WEB_CARDS_TOP } from "../constants/scroll";
+import { WEB_CARD_CENTER } from "../constants/scroll";
+import PinnedCard from "./PinnedCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -132,20 +133,19 @@ const WebOverlay = (props) => {
 
   
   return (
-    // Pinned to the 3D timeline: one slot per 0.5s of the web carousel, so each
-    // card sits level with its 3D card (see constants/scroll.js).
+    // Pinned on screen (inside ContentOverlay's pinned layer): each card shows
+    // level with its 3D card while that card faces the camera.
     <section
-      className="absolute inset-x-0 flex flex-col items-end"
+      className="absolute inset-0 flex justify-end"
       style={{
-        top: WEB_CARDS_TOP,
         opacity: props.opacity,
       }}
     >
-      <div className="w-1/2 pl-8 pr-[120px]">
+      <div className="relative w-1/2 h-full">
         {webPortoContent.map((content, index) => (
-          <div key={content.name} className="flex items-center justify-center" style={{ height: CARD_SLOT_PX }}>
+          <PinnedCard key={content.name} index={index} active={props.active} centre={WEB_CARD_CENTER} className="left-8 right-[120px]">
             <WebCardContent ref={refs[index]} title={content.name} desc={content.desc} skillList={content.skill} />
-          </div>
+          </PinnedCard>
         ))}
       </div>
     </section>
